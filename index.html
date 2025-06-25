@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science & AI Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #e2e8f0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animated background particles */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Header */
+        header {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #34d399, #fbbf24);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-out 0.9s both;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 80px 0;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            margin: 40px 0;
+            border-radius: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #f1f5f9;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: rgba(30, 41, 59, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .skill-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #f1f5f9;
+        }
+
+        .skill-description {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.4);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-header {
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .project-body {
+            padding: 25px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.3);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            fill: #60a5fa;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1 class="hero-title">Data Scientist & AI Engineer</h1>
+            <p class="hero-subtitle">Transforming Data into Intelligent Solutions</p>
+            <p class="hero-description">
+                Passionate about leveraging machine learning, natural language processing, and advanced analytics 
+                to solve complex problems and drive innovation through data-driven insights.
+            </p>
+            <a href="#contact" class="cta-button">Let's Connect</a>
+        </header>
+
+        <!-- Skills Section -->
+        <section class="skills-section">
+            <div class="section-title">Core Expertise</div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3 class="skill-title">Data Analysis & Visualization</h3>
+                    <p class="skill-description">
+                        Expert in extracting meaningful insights from complex datasets using statistical analysis, 
+                        data mining techniques, and creating compelling visualizations that tell data stories.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Seaborn</span>
+                        <span class="tech-tag">Plotly</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3 class="skill-title">Large Language Models</h3>
+                    <p class="skill-description">
+                        Experienced in working with state-of-the-art LLMs, fine-tuning models, prompt engineering, 
+                        and building intelligent applications powered by natural language understanding.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">OpenAI GPT</span>
+                        <span class="tech-tag">Hugging Face</span>
+                        <span class="tech-tag">Transformers</span>
+                        <span class="tech-tag">BERT</span>
+                        <span class="tech-tag">Fine-tuning</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🔗</div>
+                    <h3 class="skill-title">LangChain Development</h3>
+                    <p class="skill-description">
+                        Proficient in building sophisticated AI applications using LangChain framework, 
+                        creating agent workflows, RAG systems, and integrating multiple AI tools seamlessly.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Vector Databases</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">Agents</span>
+                        <span class="tech-tag">Chains</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <h3 class="skill-title">Python Development</h3>
+                    <p class="skill-description">
+                        Advanced Python programming skills with focus on data science, machine learning, 
+                        and building scalable applications. Expert in the entire Python ML ecosystem.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Jupyter</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <div class="section-title">Featured Projects</div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Intelligent Document Analysis System</h3>
+                        <p class="project-description">
+                            Built an end-to-end system using LangChain and LLMs to automatically extract, 
+                            analyze, and summarize insights from thousands of business documents.
+                        </p>
+                    </div>
+                    <div class="project-body">
+                        <div class="tech-tags">
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">OpenAI</span>
+                            <span class="tech-tag">Pinecone</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Predictive Analytics Dashboard</h3>
+                        <p class="project-description">
+                            Developed a real-time dashboard that uses machine learning models to predict 
+                            business KPIs and provide actionable insights for decision makers.
+                        </p>
+                    </div>
+                    <div class="project-body">
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Plotly Dash</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">AI-Powered Customer Support Bot</h3>
+                        <p class="project-description">
+                            Created an intelligent chatbot using LangChain agents that can handle complex 
+                            customer queries, access multiple data sources, and provide personalized responses.
+                        </p>
+                    </div>
+                    <div class="project-body">
+                        <div class="tech-tags">
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">GPT-4</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="section-title">Let's Build Something Amazing</div>
+            <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 30px;">
+                Ready to turn your data into actionable insights? Let's discuss your next AI project.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    your.email@example.com
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                    </svg>
+                    LinkedIn Profile
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub Portfolio
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Create floating particles animation
+        function createParticles() {
+            const container = document.getElementById('bgAnimation');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size and position
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Smooth scrolling for CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Initialize particles when page loads
+        window.addEventListener('load', createParticles);
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for scroll animations
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.skill-card, .project-card').forEach(card => {
+                card.style.opacity = '0';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
