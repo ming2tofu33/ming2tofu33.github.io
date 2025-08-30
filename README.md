@@ -22,7 +22,7 @@ My portfolio website
 ## 📫 Contact
 - Portfolio: [ming2tofu33.github.io](https://ming2tofu33.github.io)
 - Email: ming2tofu33@gmail.com
-- LinkedIn: [도민 김](https://www.linkedin.com/in/도민-김-b5b3b9366/)
+- LinkedIn: [Domin Kim](https://www.linkedin.com/in/domin-kim-b5b3b9366/)
 
 ## 🌱 Currently
 - SeSAC AI 데이터 분석 과정 진행 중
