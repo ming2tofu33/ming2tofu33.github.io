@@ -2,10 +2,9 @@
 My portfolio website
 [💖click here💖](https://ming2tofu33.github.io/)
 
-# 안녕하세요! 도민입니다 👋
+# Hello World! This is "도민" 👋
 
-데이터 분석과 AI 기술로 문제를 해결하는 것을 좋아합니다.
-매일 새로운 것을 학습하고, 실무 프로젝트를 통해 경험을 쌓고 있습니다.
+“Turning Data into Insights, and Insights into Solutions”
 
 ## 🛠 Tech Stack
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -25,6 +24,7 @@ My portfolio website
 - LinkedIn: [Domin Kim](https://www.linkedin.com/in/domin-kim-b5b3b9366/)
 
 ## 🌱 Currently
-- SeSAC AI 데이터 분석 과정 진행 중
-- 매일 TIL 작성으로 학습 기록
-- 코딩테스트 문제 해결
+- Currently enrolled in the SeSAC AI Data Analytics Program – 2 months completed out of a 3-month intensive track
+- Gaining hands-on experience with Python, Pandas, SQL, Machine Learning, and LLM applications through practical projects
+- Actively solving algorithm & coding interview challenges to strengthen problem-solving skills
+- Maintaining a consistent learning log by updating daily Git TIL (Today I Learned) posts

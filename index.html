@@ -867,7 +867,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="#learning">Learning</a></li>
                 <li><a href="#journey">Journey</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -900,6 +900,8 @@
                     <button class="btn btn-secondary" onclick="showContactModal()">연락하기</button>
                     <button class="btn btn-secondary" onclick="showResumeModal()">이력서 보기</button>
                 </div>
+            <!-- GitHub 활동 (접힘) -->
+            <div id="github-section" class="collapsible-section" style="display: none;">
             </div>
         </div>
     </section>
@@ -940,7 +942,7 @@
                    onclick="closeContactModal()">
                     이메일 보내기 📧
                 </a>
-                <a href="https://www.linkedin.com/in/%EB%8F%84%EB%AF%BC-%EA%B9%80-b5b3b9366/" 
+                <a href="https://www.linkedin.com/in/domin-kim-b5b3b9366/" 
                    target="_blank" 
                    class="modal-btn modal-btn-secondary"
                    onclick="closeContactModal()">
@@ -1410,49 +1412,170 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="section">
+    <!-- Learning Section -->
+    <section id="learning" class="section">
         <div class="container">
-            <h2 class="section-title">Blog & Learning</h2>
+            <h2 class="section-title">Learning & Growth</h2>
             
             <div style="text-align: center; margin-bottom: 3rem;">
                 <p style="color: #8892a0;">지속적인 학습과 기술 공유를 통해 성장하고 있습니다</p>
             </div>
 
-            <!-- TIL & 학습 기록 -->
-            <div style="margin-bottom: 3rem;">
+            <!-- GitHub 활동 - 상단 고정 -->
+            <div style="margin-bottom: 4rem;">
+                <!-- 관심 있는 기술 트렌드 -->
+                <div style="margin-bottom: 3rem;">
+                    <h4 style="color: #ff69b4; margin-bottom: 1.5rem; text-align: center;">관심 있는 기술 트렌드</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                        <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">LLM Fine-tuning</span>
+                        <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">MLOps</span>
+                        <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Real-time Analytics</span>
+                        <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">AutoML</span>
+                        <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Data Pipeline</span>
+                        <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Cloud Computing</span>
+                    </div>
+                </div>
+
+                <div class="glass" style="padding: 2rem;">
+                    <h4 style="color: #ff69b4; margin-bottom: 1rem; text-align: center;">GitHub 활동</h4>
+                    <p style="color: #8892a0; margin-bottom: 2rem; text-align: center;">꾸준한 코딩과 프로젝트 진행 상황</p>
+                    <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">180+</div>
+                            <div style="font-size: 0.9rem; color: #8892a0;">총 커밋</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">12</div>
+                            <div style="font-size: 0.9rem; color: #8892a0;">공개 저장소</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">50+</div>
+                            <div style="font-size: 0.9rem; color: #8892a0;">TIL 포스트</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <a href="https://github.com/ming2tofu33" target="_blank" style="color: #ff69b4; text-decoration: none;">
+                            GitHub에서 더 보기 →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 학습 요약 카드 -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div class="glass" style="padding: 2rem; text-align: center;">
+                    <h4 style="color: #ff69b4; margin-bottom: 1rem;">학습 노트</h4>
+                    <p style="color: #b0b8c3; margin-bottom: 1.5rem;">체계적으로 정리된 개념들</p>
+                    <button class="btn btn-secondary" onclick="toggleSection('notes-section')" style="padding: 10px 25px;">
+                        노트 보기
+                    </button>
+                </div>
+                <div class="glass" style="padding: 2rem; text-align: center;">
+                    <h4 style="color: #ff69b4; margin-bottom: 1rem;">TIL 기록</h4>
+                    <p style="color: #b0b8c3; margin-bottom: 1.5rem;">매일의 학습 여정</p>
+                    <button class="btn btn-secondary" onclick="toggleSection('til-section')" style="padding: 10px 25px;">
+                        TIL 보기
+                    </button>
+                </div>
+            </div>
+
+            <!-- 노션 학습 노트 (접힘) -->
+            <div id="notes-section" class="collapsible-section" style="display: none;">
+                <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">학습 노트 모음</h3>
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <a href="https://www.notion.so/21cee8fffe15809b8428e059252b7b63?v=21cee8fffe158139b40e000c1a50ab22&source=copy_link" 
+                       target="_blank" 
+                       class="btn btn-primary" 
+                       style="padding: 12px 30px;">
+                        전체 학습 노트 보기
+                    </a>
+                </div>
+                <div class="blog-grid">
+                    <div class="blog-card glass">
+                        <div class="blog-date">August 26, 2025</div>
+                        <h4 class="blog-title">Machine Learning</h4>
+                        <p class="blog-excerpt">
+                            머신러닝 기본 개념과 알고리즘들을 정리했습니다. 
+                            지도학습과 비지도학습, 주요 알고리즘의 특징과 활용법을 체계적으로 학습했습니다.
+                        </p>
+                        <div style="margin-top: 1rem;">
+                            <span class="tech-tag" style="font-size: 0.8rem;">Machine Learning</span>
+                            <span class="tech-tag" style="font-size: 0.8rem;">Algorithm</span>
+                        </div>
+                    </div>
+                    <div class="blog-card glass">
+                        <div class="blog-date">August 26, 2025</div>
+                        <h4 class="blog-title">Data Analysis</h4>
+                        <p class="blog-excerpt">
+                            데이터 분석의 전체 프로세스와 핵심 기법들을 정리했습니다. 
+                            EDA부터 시각화까지 실무에서 활용할 수 있는 분석 방법론을 학습했습니다.
+                        </p>
+                        <div style="margin-top: 1rem;">
+                            <span class="tech-tag" style="font-size: 0.8rem;">Data Analysis</span>
+                            <span class="tech-tag" style="font-size: 0.8rem;">EDA</span>
+                        </div>
+                    </div>
+                    <div class="blog-card glass">
+                        <div class="blog-date">August 6, 2025</div>
+                        <h4 class="blog-title">NumPy & Pandas</h4>
+                        <p class="blog-excerpt">
+                            Python 데이터 처리의 핵심 라이브러리인 NumPy와 Pandas 사용법을 정리했습니다. 
+                            배열 연산부터 데이터프레임 조작까지 실습 위주로 학습했습니다.
+                        </p>
+                        <div style="margin-top: 1rem;">
+                            <span class="tech-tag" style="font-size: 0.8rem;">NumPy</span>
+                            <span class="tech-tag" style="font-size: 0.8rem;">Pandas</span>
+                        </div>
+                    </div>
+                    <div class="blog-card glass">
+                        <div class="blog-date">July 25, 2025</div>
+                        <h4 class="blog-title">Python 기초</h4>
+                        <p class="blog-excerpt">
+                            Python 프로그래밍 기초 문법과 핵심 개념들을 체계적으로 정리했습니다. 
+                            변수, 함수, 제어문부터 객체지향 프로그래밍까지 단계별로 학습했습니다.
+                        </p>
+                        <div style="margin-top: 1rem;">
+                            <span class="tech-tag" style="font-size: 0.8rem;">Python</span>
+                            <span class="tech-tag" style="font-size: 0.8rem;">Programming</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIL & 최근 학습 기록 (접힘) -->
+            <div id="til-section" class="collapsible-section" style="display: none;">
                 <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">최근 학습 기록 (TIL)</h3>
                 <div class="blog-grid">
                     <div class="blog-card glass">
-                        <div class="blog-date">2025.08.29</div>
-                        <h4 class="blog-title">LangChain Agent 심화 학습</h4>
+                        <div class="blog-date">9월</div>
+                        <h4 class="blog-title">LLM 활용과 고급 기법</h4>
                         <p class="blog-excerpt">
-                            다중 도구를 활용하는 AI 에이전트 구현 방법을 학습했습니다. 
-                            ReAct 패턴과 메모리 관리에 대해 깊이 있게 이해할 수 있었습니다.
+                            LLM 이해 및 프롬프트 엔지니어링을 학습하고 있습니다. 
+                            고급 LLM 활용법과 실제 프로젝트 적용 방법을 익히며, 최종 프로젝트를 준비하고 있습니다.
                         </p>
                     </div>
                     <div class="blog-card glass">
-                        <div class="blog-date">2025.08.28</div>
-                        <h4 class="blog-title">시계열 데이터 분석 기법</h4>
+                        <div class="blog-date">8월</div>
+                        <h4 class="blog-title">머신러닝과 프로젝트 실습</h4>
                         <p class="blog-excerpt">
-                            ARIMA 모델과 계절성 분해 기법을 활용한 시계열 예측 방법을 실습했습니다. 
-                            실제 주가 데이터로 예측 모델의 성능을 검증해보았습니다.
+                            머신러닝 알고리즘을 학습하고 데이터 분석 프로젝트를 진행했습니다. 
+                            실제 데이터를 활용한 분석과 머신러닝 모델 적용을 통해 실무 경험을 쌓았습니다.
                         </p>
                     </div>
                     <div class="blog-card glass">
-                        <div class="blog-date">2025.08.27</div>
-                        <h4 class="blog-title">Feature Engineering 최적화</h4>
+                        <div class="blog-date">7월</div>
+                        <h4 class="blog-title">Python과 데이터 처리</h4>
                         <p class="blog-excerpt">
-                            머신러닝 모델 성능 향상을 위한 피처 엔지니어링 기법들을 정리했습니다. 
-                            범주형 변수 인코딩과 수치형 변수 스케일링의 중요성을 깨달았습니다.
+                            Python 기초부터 NumPy, Pandas를 활용한 데이터 처리를 학습했습니다. 
+                            Data Scraping과 Web API 활용을 통해 실제 데이터 수집 경험을 쌓았습니다.
                         </p>
                     </div>
                     <div class="blog-card glass">
-                        <div class="blog-date">2025.08.26</div>
-                        <h4 class="blog-title">SQL 성능 최적화</h4>
+                        <div class="blog-date">6월</div>
+                        <h4 class="blog-title">기초 도구와 SQL</h4>
                         <p class="blog-excerpt">
-                            복잡한 쿼리의 실행 계획을 분석하고 인덱스 활용을 통한 성능 개선 방법을 학습했습니다. 
-                            실제 대용량 데이터에서 쿼리 속도를 3배 향상시켰습니다.
+                            오리엔테이션과 Git 기초, SQL 학습으로 시작했습니다. 
+                            개발 환경 설정과 버전 관리, 데이터베이스 기초를 익혔습니다.
                         </p>
                     </div>
                 </div>
@@ -1638,27 +1761,27 @@
                     새로운 기회와 도전을 기다리고 있습니다. 언제든지 연락해주세요!
                 </p>
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <a href="mailto:ming2tofu33@gmail.com" class="contact-item" style="text-decoration: none; color: inherit;">
                         <div class="contact-icon">📧</div>
                         <div>
                             <div style="font-weight: 600;">Email</div>
                             <div>ming2tofu33@gmail.com</div>
                         </div>
-                    </div>
-                    <div class="contact-item">
+                    </a>
+                    <a href="https://github.com/ming2tofu33" target="_blank" class="contact-item" style="text-decoration: none; color: inherit;">
                         <div class="contact-icon">💼</div>
                         <div>
                             <div style="font-weight: 600;">GitHub</div>
                             <div>github.com/ming2tofu33</div>
                         </div>
-                    </div>
-                    <div class="contact-item">
+                    </a>
+                    <a href="https://www.linkedin.com/in/domin-kim-b5b3b9366/" target="_blank" class="contact-item" style="text-decoration: none; color: inherit;">
                         <div class="contact-icon">📱</div>
                         <div>
                             <div style="font-weight: 600;">LinkedIn</div>
-                            <div><a href="https://www.linkedin.com/in/%EB%8F%84%EB%AF%BC-%EA%B9%80-b5b3b9366/" style="color: inherit; text-decoration: none;">linkedin.com/in/도민-김</a></div>
+                            <div>linkedin.com/in/domin-kim</div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- 이력서 보기 -->
@@ -1806,6 +1929,35 @@ print(f"80평 주택 예상 가격: {prediction[0]:.2f}만원")
 
         function closeResumeModal() {
             document.getElementById('resumeModal').style.display = 'none';
+        }
+
+        // Section toggle function
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const allSections = document.querySelectorAll('.collapsible-section');
+            
+            // 다른 섹션들은 닫기
+            allSections.forEach(sec => {
+                if (sec.id !== sectionId) {
+                    sec.style.display = 'none';
+                }
+            });
+            
+            // 선택한 섹션 토글
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+                // 섹션이 열린 후 Learning 섹션의 제목 부분으로 스크롤
+                setTimeout(() => {
+                    const learningSection = document.getElementById('learning');
+                    const learningTop = learningSection.offsetTop + 150; // 제목 아래쪽으로
+                    window.scrollTo({
+                        top: learningTop,
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            } else {
+                section.style.display = 'none';
+            }
         }
 
         // Contact modal functions
