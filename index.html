@@ -25,6 +25,81 @@
             padding: 0 20px;
         }
 
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 15, 28, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff69b4;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #ff69b4;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: #ff69b4;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ff69b4;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
         /* Glassmorphism effect */
         .glass {
             background: rgba(255, 255, 255, 0.05);
@@ -40,6 +115,7 @@
             align-items: center;
             position: relative;
             background: linear-gradient(135deg, #0a0f1c 0%, #1a1f35 50%, #0a0f1c 100%);
+            padding-top: 80px;
         }
 
         .hero::before {
@@ -108,6 +184,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            display: inline-block;
         }
 
         .btn-primary {
@@ -263,6 +340,189 @@
             color: #ff69b4;
         }
 
+        /* Projects Section */
+        .projects-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 25px;
+            background: transparent;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            border-radius: 25px;
+            color: #8892a0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: #ff69b4;
+            color: #ffffff;
+            border-color: #ff69b4;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            color: #ff69b4;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: rgba(255, 105, 180, 0.1);
+            color: #ff69b4;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-link {
+            color: #ff69b4;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #ffffff;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .blog-date {
+            color: #ff69b4;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .blog-excerpt {
+            color: #8892a0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff69b4;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #8892a0;
+            font-size: 0.9rem;
+        }
+
+        /* Interactive Demo Section */
+        .demo-container {
+            margin: 3rem 0;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .demo-btn {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .demo-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .demo-output {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+        }
+
         /* Journey Section */
         .journey-timeline {
             position: relative;
@@ -401,7 +661,125 @@
             animation: progressFill 2s ease-out;
         }
 
-        /* Animations */
+        /* Environment & Tools */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tool-category {
+            padding: 1.5rem;
+        }
+
+        .tool-category h4 {
+            color: #ff69b4;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .tool-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tool-list li {
+            padding: 0.3rem 0;
+            color: #8892a0;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #1a1f35 0%, #0a0f1c 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            min-width: 400px;
+            max-width: 500px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #8892a0;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #ff69b4;
+        }
+
+        .modal-title {
+            color: #ff69b4;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .modal-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .modal-btn-primary {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+        }
+
+        .modal-btn-secondary {
+            background: transparent;
+            color: #ff69b4;
+            border: 2px solid #ff69b4;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                min-width: 90%;
+                max-width: 90%;
+                margin: 0 5%;
+            }
+        }
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -425,6 +803,27 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(10, 15, 28, 0.95);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                backdrop-filter: blur(10px);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -460,6 +859,26 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">DK</div>
+            <ul class="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Floating Particles -->
     <div class="particle"></div>
     <div class="particle"></div>
@@ -477,12 +896,59 @@
                     데이터 기반 의사결정과 지능형 솔루션 개발에 집중하고 있습니다.
                 </p>
                 <div class="cta-buttons">
-                    <a href="#about" class="btn btn-primary">더 알아보기</a>
-                    <a href="mailto:ming2tofu33@gmail.com" class="btn btn-secondary">연락하기</a>
+                    <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+                    <button class="btn btn-secondary" onclick="showContactModal()">연락하기</button>
+                    <button class="btn btn-secondary" onclick="showResumeModal()">이력서 보기</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Resume Modal -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content glass">
+            <span class="modal-close" onclick="closeResumeModal()">&times;</span>
+            <h3 class="modal-title">이력서 보기</h3>
+            <p style="color: #8892a0; margin-bottom: 1rem;">
+                원하시는 방식으로 이력서를 확인해보세요
+            </p>
+            <div class="modal-buttons">
+                <a href="https://maroon-anaconda-f0c.notion.site/Online-Resume-21cee8fffe1580838bd5d923ade94b4e?source=copy_link" 
+                   target="_blank" 
+                   class="modal-btn modal-btn-primary"
+                   onclick="closeResumeModal()">
+                    온라인 이력서 보기 📄
+                </a>
+                <button class="modal-btn modal-btn-secondary" onclick="downloadResume(); closeResumeModal();">
+                    PDF 다운로드 📥
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content glass">
+            <span class="modal-close" onclick="closeContactModal()">&times;</span>
+            <h3 class="modal-title">연락하기</h3>
+            <p style="color: #8892a0; margin-bottom: 1rem;">
+                편한 방법으로 연락주세요!
+            </p>
+            <div class="modal-buttons">
+                <a href="mailto:ming2tofu33@gmail.com" 
+                   class="modal-btn modal-btn-primary"
+                   onclick="closeContactModal()">
+                    이메일 보내기 📧
+                </a>
+                <a href="https://www.linkedin.com/in/%EB%8F%84%EB%AF%BC-%EA%B9%80-b5b3b9366/" 
+                   target="_blank" 
+                   class="modal-btn modal-btn-secondary"
+                   onclick="closeContactModal()">
+                    LinkedIn 연결 💼
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="section">
@@ -520,17 +986,53 @@
                             실무 프로젝트 경험 쌓기
                         </li>
                     </ul>
+
+                    <!-- 개발 철학 -->
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">개발 철학</h4>
+                        <p style="color: #8892a0; font-size: 0.95rem;">
+                            "데이터는 단순한 숫자가 아니라 스토리를 담고 있습니다. 
+                            이 스토리를 발견하고 가치 있는 인사이트로 변환하여 
+                            실질적인 문제 해결에 기여하는 것이 저의 목표입니다."
+                        </p>
+                    </div>
                 </div>
                 <div class="about-image">
                     <div class="profile-card glass">
                         <div class="profile-avatar">DK</div>
                         <h3 style="color: #ff69b4; margin-bottom: 0.5rem;">Domin Kim</h3>
                         <p style="color: #8892a0; margin-bottom: 1rem;">AI & Data Analytics Enthusiast</p>
-                        <p style="font-size: 0.9rem; color: #b0b8c3;">
-                            "데이터를 통해 세상을 이해하고,<br>
-                            AI로 미래를 만들어가겠습니다"
-                        </p>
+                        <div style="margin: 2rem 0;">
+                            <div style="margin-bottom: 0.5rem; font-size: 0.9rem;">
+                                <span style="color: #ff69b4;">언어:</span> 
+                                <span style="color: #b0b8c3;">한국어(Native), 영어(Intermediate)</span>
+                            </div>
+                            <div style="font-size: 0.9rem;">
+                                <span style="color: #ff69b4;">선호 협업:</span> 
+                                <span style="color: #b0b8c3;">Git, Slack, Notion</span>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-grid">
+                <div class="stat-card glass">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">해결한 코딩테스트 문제</div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">완성한 프로젝트</div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Git TIL 포스트</div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">다뤄본 실제 데이터셋</div>
                 </div>
             </div>
         </div>
@@ -539,7 +1041,7 @@
     <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">학습 중인 기술들</h2>
+            <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-card glass">
                     <div class="skill-icon">🐍</div>
@@ -550,6 +1052,15 @@
                         <li>기초 통계 및 데이터 심화</li>
                         <li>EDA(탐색적 데이터 분석)</li>
                     </ul>
+                    <div style="margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.9rem;">숙련도</span>
+                            <span style="font-size: 0.8rem; color: #ff69b4;">80%</span>
+                        </div>
+                        <div class="progress-bar" style="height: 4px;">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="skill-card glass">
@@ -561,6 +1072,15 @@
                         <li>비지도 학습 기초</li>
                         <li>모델 평가 및 개선</li>
                     </ul>
+                    <div style="margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.9rem;">숙련도</span>
+                            <span style="font-size: 0.8rem; color: #ff69b4;">70%</span>
+                        </div>
+                        <div class="progress-bar" style="height: 4px;">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="skill-card glass">
@@ -572,18 +1092,434 @@
                         <li>LangChain 프레임워크</li>
                         <li>LLM Agent 설계</li>
                     </ul>
+                    <div style="margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.9rem;">숙련도</span>
+                            <span style="font-size: 0.8rem; color: #ff69b4;">75%</span>
+                        </div>
+                        <div class="progress-bar" style="height: 4px;">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="skill-card glass">
-                    <div class="skill-icon">💻</div>
-                    <h3>개발 도구 & 기타</h3>
+                    <div class="skill-icon">🕷️</div>
+                    <h3>웹 크롤링 & 데이터 수집</h3>
                     <ul class="skill-list">
-                        <li>Git, GitHub</li>
-                        <li>CLI (Command Line Interface)</li>
-                        <li>Google Spreadsheet, SQL, RDBMS</li>
-                        <li>HTTP, Web API</li>
+                        <li>BeautifulSoup, Selenium</li>
+                        <li>웹 페이지 데이터 추출</li>
+                        <li>네이버 영화 평점 크롤링 경험</li>
+                        <li>API와 크롤링 데이터 결합</li>
                     </ul>
+                    <div style="margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.9rem;">숙련도</span>
+                            <span style="font-size: 0.8rem; color: #ff69b4;">70%</span>
+                        </div>
+                        <div class="progress-bar" style="height: 4px;">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="skill-card glass">
+                    <div class="skill-icon">📊</div>
+                    <h3>데이터 시각화</h3>
+                    <ul class="skill-list">
+                        <li>Matplotlib, Seaborn</li>
+                        <li>차트 및 그래프 생성</li>
+                        <li>데이터 스토리텔링</li>
+                        <li>시각적 인사이트 발굴</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.9rem;">숙련도</span>
+                            <span style="font-size: 0.8rem; color: #ff69b4;">75%</span>
+                        </div>
+                        <div class="progress-bar" style="height: 4px;">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card glass">
+                    <div class="skill-icon">🔀</div>
+                    <h3>버전 관리 & 협업</h3>
+                    <ul class="skill-list">
+                        <li>Git workflow (branch, merge)</li>
+                        <li>GitHub 프로젝트 관리</li>
+                        <li>커밋 메시지 컨벤션</li>
+                        <li>코드 리뷰 및 협업</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.9rem;">숙련도</span>
+                            <span style="font-size: 0.8rem; color: #ff69b4;">80%</span>
+                        </div>
+                        <div class="progress-bar" style="height: 4px;">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 작업 환경 -->
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; color: #ff69b4; margin-bottom: 2rem;">작업 환경 & 도구</h3>
+                <div class="tools-grid">
+                    <div class="tool-category glass">
+                        <h4>개발 환경</h4>
+                        <ul class="tool-list">
+                            <li>VS Code, Jupyter Notebook</li>
+                            <li>Python 3.9+</li>
+                            <li>macOS / Windows</li>
+                            <li>Docker (학습 중)</li>
+                        </ul>
+                    </div>
+                    <div class="tool-category glass">
+                        <h4>데이터 도구</h4>
+                        <ul class="tool-list">
+                            <li>Pandas, NumPy</li>
+                            <li>Matplotlib, Seaborn</li>
+                            <li>Scikit-learn</li>
+                            <li>PostgreSQL, MySQL</li>
+                        </ul>
+                    </div>
+                    <div class="tool-category glass">
+                        <h4>협업 도구</h4>
+                        <ul class="tool-list">
+                            <li>Git, GitHub</li>
+                            <li>Slack, Notion</li>
+                            <li>Figma (기초)</li>
+                            <li>Google Workspace</li>
+                        </ul>
+                    </div>
+                    <div class="tool-category glass">
+                        <h4>AI/ML 도구</h4>
+                        <ul class="tool-list">
+                            <li>OpenAI API</li>
+                            <li>LangChain</li>
+                            <li>Hugging Face</li>
+                            <li>TensorFlow (학습 중)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            
+            <!-- Project Tabs -->
+            <div class="projects-tabs">
+                <button class="tab-btn active" onclick="showProjects('all')">전체</button>
+                <button class="tab-btn" onclick="showProjects('data')">데이터 분석</button>
+                <button class="tab-btn" onclick="showProjects('ml')">머신러닝</button>
+                <button class="tab-btn" onclick="showProjects('llm')">LLM 활용</button>
+                <button class="tab-btn" onclick="showProjects('web')">웹 개발</button>
+            </div>
+
+            <div class="projects-grid" id="projects-container">
+                <!-- 영화 데이터 분석 프로젝트 -->
+                <div class="project-card glass" data-category="data">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">영화 데이터 분석 프로젝트</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">KOFIC API와 웹 크롤링을 활용한 영화 데이터 수집 및 분석</p>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">KOFIC API</span>
+                        <span class="tech-tag">Web Scraping</span>
+                        <span class="tech-tag">BeautifulSoup</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Data Analysis</span>
+                    </div>
+                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                        KOFIC API를 통해 영화 데이터를 수집하고, 네이버 영화 평점을 웹 크롤링으로 추가 수집하여 
+                        종합적인 영화 데이터 분석을 진행한 프로젝트입니다. 장르별, 연도별 트렌드와 평점 분석을 통해 인사이트를 도출했습니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/ming2tofu33/pjt-movie-analysis" class="project-link" target="_blank">GitHub</a>
+                        <a href="#" class="project-link">Report</a>
+                    </div>
+                </div>
+
+                <!-- 서울시 부동산 가격 분석 -->
+                <div class="project-card glass" data-category="data">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">서울시 부동산 가격 분석</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">공공데이터를 활용한 부동산 시장 트렌드 분석</p>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Seaborn</span>
+                    </div>
+                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                        서울시 아파트 실거래가 데이터를 수집하고 전처리하여 지역별, 연도별 가격 변화 패턴을 시각화했습니다. 
+                        상관관계 분석을 통해 가격에 영향을 미치는 주요 요인들을 발견했습니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">GitHub</a>
+                        <a href="#" class="project-link">Demo</a>
+                    </div>
+                </div>
+
+                <!-- 머신러닝 프로젝트 -->
+                <div class="project-card glass" data-category="ml">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">고객 이탈 예측 모델</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">머신러닝을 활용한 고객 행동 분석 및 예측</p>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">Feature Engineering</span>
+                    </div>
+                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                        통신사 고객 데이터를 활용하여 이탈 가능성을 예측하는 분류 모델을 구축했습니다. 
+                        다양한 알고리즘을 비교 분석하고 최적의 하이퍼파라미터를 찾아 85% 이상의 정확도를 달성했습니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">GitHub</a>
+                        <a href="#" class="project-link">Report</a>
+                    </div>
+                </div>
+
+                <!-- LLM 프로젝트 -->
+                <div class="project-card glass" data-category="llm">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">AI 학습 도우미 챗봇</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">LangChain과 OpenAI API를 활용한 개인 맞춤형 학습 도우미</p>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">OpenAI API</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                        사용자의 질문에 맞춤형 답변을 제공하는 AI 챗봇을 개발했습니다. 
+                        RAG(Retrieval Augmented Generation) 기법을 적용하여 정확한 정보 제공과 개인화된 학습 경험을 구현했습니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">GitHub</a>
+                        <a href="#" class="project-link">Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- 웹 개발 프로젝트 -->
+                <div class="project-card glass" data-category="web">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">데이터 시각화 대시보드</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">실시간 데이터 모니터링을 위한 웹 대시보드</p>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Plotly</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                        비즈니스 KPI를 실시간으로 모니터링할 수 있는 인터랙티브 대시보드를 제작했습니다. 
+                        다양한 차트와 필터 기능을 통해 사용자가 원하는 관점에서 데이터를 분석할 수 있도록 구현했습니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">GitHub</a>
+                        <a href="#" class="project-link">Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- 추가 프로젝트 -->
+                <div class="project-card glass" data-category="data">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">코로나19 데이터 분석</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">시계열 데이터 분석을 통한 감염 추세 파악</p>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Time Series</span>
+                        <span class="tech-tag">Visualization</span>
+                    </div>
+                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                        공공데이터포털의 코로나19 데이터를 활용하여 감염 확산 패턴을 분석했습니다. 
+                        지역별, 연령별 감염 추세를 시각화하고 계절성 패턴을 발견했습니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">GitHub</a>
+                        <a href="#" class="project-link">Notebook</a>
+                    </div>
+                </div>
+
+                <div class="project-card glass" data-category="data">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">영화 데이터 분석 프로젝트</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">TMDB API를 활용한 영화 데이터 수집 및 분석</p>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TMDB API</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Data Analysis</span>
+                    </div>
+                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                        TMDB API를 통해 영화 데이터를 수집하고 분석한 프로젝트입니다. 
+                        영화의 장르, 평점, 개봉년도 등 다양한 요소들을 분석하여 인사이트를 도출했습니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/ming2tofu33/pjt-movie-analysis" class="project-link" target="_blank">GitHub</a>
+                        <a href="#" class="project-link">Report</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 인터랙티브 데모 섹션 -->
+            <div class="demo-container glass" style="margin-top: 3rem;">
+                <h3 style="color: #ff69b4; margin-bottom: 1rem;">라이브 데모</h3>
+                <p style="color: #8892a0; margin-bottom: 2rem;">간단한 데이터 분석 예시를 체험해보세요</p>
+                
+                <button class="demo-btn" onclick="runDemo('chart')">차트 생성하기</button>
+                <button class="demo-btn" onclick="runDemo('stats')">통계 분석</button>
+                <button class="demo-btn" onclick="runDemo('prediction')">예측 모델</button>
+                
+                <div class="demo-output" id="demo-output" style="display: none;">
+                    <!-- 데모 결과가 여기에 표시됩니다 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title">Blog & Learning</h2>
+            
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <p style="color: #8892a0;">지속적인 학습과 기술 공유를 통해 성장하고 있습니다</p>
+            </div>
+
+            <!-- TIL & 학습 기록 -->
+            <div style="margin-bottom: 3rem;">
+                <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">최근 학습 기록 (TIL)</h3>
+                <div class="blog-grid">
+                    <div class="blog-card glass">
+                        <div class="blog-date">2025.08.29</div>
+                        <h4 class="blog-title">LangChain Agent 심화 학습</h4>
+                        <p class="blog-excerpt">
+                            다중 도구를 활용하는 AI 에이전트 구현 방법을 학습했습니다. 
+                            ReAct 패턴과 메모리 관리에 대해 깊이 있게 이해할 수 있었습니다.
+                        </p>
+                    </div>
+                    <div class="blog-card glass">
+                        <div class="blog-date">2025.08.28</div>
+                        <h4 class="blog-title">시계열 데이터 분석 기법</h4>
+                        <p class="blog-excerpt">
+                            ARIMA 모델과 계절성 분해 기법을 활용한 시계열 예측 방법을 실습했습니다. 
+                            실제 주가 데이터로 예측 모델의 성능을 검증해보았습니다.
+                        </p>
+                    </div>
+                    <div class="blog-card glass">
+                        <div class="blog-date">2025.08.27</div>
+                        <h4 class="blog-title">Feature Engineering 최적화</h4>
+                        <p class="blog-excerpt">
+                            머신러닝 모델 성능 향상을 위한 피처 엔지니어링 기법들을 정리했습니다. 
+                            범주형 변수 인코딩과 수치형 변수 스케일링의 중요성을 깨달았습니다.
+                        </p>
+                    </div>
+                    <div class="blog-card glass">
+                        <div class="blog-date">2025.08.26</div>
+                        <h4 class="blog-title">SQL 성능 최적화</h4>
+                        <p class="blog-excerpt">
+                            복잡한 쿼리의 실행 계획을 분석하고 인덱스 활용을 통한 성능 개선 방법을 학습했습니다. 
+                            실제 대용량 데이터에서 쿼리 속도를 3배 향상시켰습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 문제 해결 경험 -->
+            <div style="margin: 3rem 0;">
+                <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">문제 해결 경험</h3>
+                <div class="blog-grid">
+                    <div class="blog-card glass">
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">메모리 부족 문제 해결</h4>
+                        <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                            대용량 CSV 파일 처리 시 메모리 부족 문제를 청크 단위 처리와 
+                            데이터 타입 최적화를 통해 해결했습니다. 처리 시간도 40% 단축시켰습니다.
+                        </p>
+                    </div>
+                    <div class="blog-card glass">
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">모델 과적합 문제</h4>
+                        <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                            교차 검증과 정규화 기법을 적용하여 과적합을 방지하고 
+                            일반화 성능을 15% 향상시킨 경험을 공유했습니다.
+                        </p>
+                    </div>
+                    <div class="blog-card glass">
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">API 응답 시간 최적화</h4>
+                        <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                            LLM API 호출 최적화를 통해 응답 시간을 2초에서 0.5초로 단축시킨 
+                            캐싱 전략과 배치 처리 방법을 정리했습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 기술 트렌드 관심사 -->
+            <div style="margin: 3rem 0;">
+                <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">관심 있는 기술 트렌드</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">LLM Fine-tuning</span>
+                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">MLOps</span>
+                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Real-time Analytics</span>
+                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">AutoML</span>
+                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Graph Neural Networks</span>
+                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Federated Learning</span>
+                </div>
+            </div>
+
+            <!-- GitHub 활동 -->
+            <div class="glass" style="padding: 2rem; text-align: center; margin-top: 3rem;">
+                <h4 style="color: #ff69b4; margin-bottom: 1rem;">GitHub 활동</h4>
+                <p style="color: #8892a0; margin-bottom: 2rem;">꾸준한 코딩과 프로젝트 진행 상황</p>
+                <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+                    <div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">180+</div>
+                        <div style="font-size: 0.9rem; color: #8892a0;">총 커밋</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">12</div>
+                        <div style="font-size: 0.9rem; color: #8892a0;">공개 저장소</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">50+</div>
+                        <div style="font-size: 0.9rem; color: #8892a0;">TIL 포스트</div>
+                    </div>
+                </div>
+                <a href="https://github.com/ming2tofu33" style="color: #ff69b4; text-decoration: none; margin-top: 1rem; display: inline-block;">
+                    GitHub에서 더 보기 →
+                </a>
             </div>
         </div>
     </section>
@@ -592,6 +1528,48 @@
     <section id="journey" class="section">
         <div class="container">
             <h2 class="section-title">My Journey</h2>
+            
+            <!-- 미래 계획 -->
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h3 style="color: #ff69b4; margin-bottom: 1rem;">단기 & 장기 목표</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div class="glass" style="padding: 2rem;">
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">단기 목표 (6개월)</h4>
+                        <ul style="list-style: none; padding: 0; color: #b0b8c3; text-align: left;">
+                            <li style="margin: 0.5rem 0; padding-left: 1rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ff69b4;">📌</span>
+                                첫 데이터 사이언티스트 포지션 확보
+                            </li>
+                            <li style="margin: 0.5rem 0; padding-left: 1rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ff69b4;">📌</span>
+                                실무 프로젝트 3개 이상 완성
+                            </li>
+                            <li style="margin: 0.5rem 0; padding-left: 1rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ff69b4;">📌</span>
+                                TensorFlow/PyTorch 마스터
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glass" style="padding: 2rem;">
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">장기 목표 (2-3년)</h4>
+                        <ul style="list-style: none; padding: 0; color: #b0b8c3; text-align: left;">
+                            <li style="margin: 0.5rem 0; padding-left: 1rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ff69b4;">🎯</span>
+                                시니어 데이터 사이언티스트 레벨
+                            </li>
+                            <li style="margin: 0.5rem 0; padding-left: 1rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ff69b4;">🎯</span>
+                                AI 제품 개발 리드 경험
+                            </li>
+                            <li style="margin: 0.5rem 0; padding-left: 1rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ff69b4;">🎯</span>
+                                오픈소스 프로젝트 기여
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <div class="journey-timeline">
                 <div class="journey-item">
                     <div class="journey-content glass">
@@ -620,6 +1598,34 @@
                     <div class="journey-icon">🎯</div>
                 </div>
             </div>
+
+            <!-- 커뮤니티 활동 -->
+            <div style="margin-top: 4rem;">
+                <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">커뮤니티 & 네트워킹</h3>
+                <div class="blog-grid">
+                    <div class="blog-card glass">
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">AI/ML 스터디 그룹</h4>
+                        <p style="color: #b0b8c3; font-size: 0.9rem;">
+                            주간 머신러닝 논문 리뷰 스터디에 참여하며 최신 연구 동향을 공유하고 
+                            동료들과 함께 프로젝트를 진행하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="blog-card glass">
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">데이터 사이언스 밋업</h4>
+                        <p style="color: #b0b8c3; font-size: 0.9rem;">
+                            매월 개최되는 데이터 사이언스 밋업에 참석하여 업계 전문가들의 
+                            경험담을 듣고 네트워킹을 통해 인사이트를 얻고 있습니다.
+                        </p>
+                    </div>
+                    <div class="blog-card glass">
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">온라인 커뮤니티 활동</h4>
+                        <p style="color: #b0b8c3; font-size: 0.9rem;">
+                            Kaggle, Stack Overflow 등에서 활동하며 다른 개발자들과 
+                            지식을 공유하고 복잡한 문제들을 함께 해결하고 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -646,7 +1652,22 @@
                             <div>github.com/ming2tofu33</div>
                         </div>
                     </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <div style="font-weight: 600;">LinkedIn</div>
+                            <div><a href="https://www.linkedin.com/in/%EB%8F%84%EB%AF%BC-%EA%B9%80-b5b3b9366/" style="color: inherit; text-decoration: none;">linkedin.com/in/도민-김</a></div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- 이력서 보기 -->
+                <div style="margin: 3rem 0;">
+                    <button class="btn btn-primary" onclick="showResumeModal()" style="font-size: 1.1rem; padding: 15px 40px;">
+                        이력서 보기
+                    </button>
+                </div>
+
                 <p style="color: #ff69b4; margin-top: 2rem; font-size: 1.1rem;">
                     "함께 성장할 수 있는 기회를 만들어가요!"
                 </p>
@@ -655,6 +1676,14 @@
     </section>
 
     <script>
+        // Navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -665,9 +1694,147 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu
+                    navMenu.classList.remove('active');
                 }
             });
         });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 15, 28, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(10, 15, 28, 0.9)';
+            }
+        });
+
+        // Project filtering
+        function showProjects(category) {
+            const projects = document.querySelectorAll('.project-card');
+            const tabs = document.querySelectorAll('.tab-btn');
+            
+            // Update active tab
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter projects
+            projects.forEach(project => {
+                if (category === 'all' || project.dataset.category === category) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        }
+
+        // Demo functions
+        function runDemo(type) {
+            const output = document.getElementById('demo-output');
+            output.style.display = 'block';
+            
+            let demoContent = '';
+            
+            switch(type) {
+                case 'chart':
+                    demoContent = `
+# 데이터 시각화 데모
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 샘플 데이터 생성
+data = np.random.randn(100).cumsum()
+plt.plot(data)
+plt.title('Random Walk Visualization')
+plt.show()
+
+결과: 무작위 걸음 차트가 생성되었습니다.
+                    `;
+                    break;
+                case 'stats':
+                    demoContent = `
+# 통계 분석 데모
+import pandas as pd
+import numpy as np
+
+# 샘플 데이터
+data = pd.DataFrame({
+    'sales': np.random.normal(1000, 200, 50),
+    'profit': np.random.normal(150, 50, 50)
+})
+
+# 기본 통계
+print(f"평균 매출: {data['sales'].mean():.2f}")
+print(f"평균 이익: {data['profit'].mean():.2f}")
+print(f"상관계수: {data.corr().iloc[0,1]:.3f}")
+
+결과: 매출과 이익의 상관관계가 분석되었습니다.
+                    `;
+                    break;
+                case 'prediction':
+                    demoContent = `
+# 예측 모델 데모
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# 가상의 주택 가격 예측 모델
+X = np.random.rand(100, 1) * 100  # 면적
+y = X.ravel() * 3 + np.random.rand(100) * 50  # 가격
+
+model = LinearRegression()
+model.fit(X, y)
+
+# 새로운 주택 예측
+new_house = [[80]]  # 80평
+prediction = model.predict(new_house)
+
+print(f"80평 주택 예상 가격: {prediction[0]:.2f}만원")
+
+결과: 선형 회귀 모델이 주택 가격을 예측했습니다.
+                    `;
+                    break;
+            }
+            
+            output.innerHTML = `<pre style="color: #00ff00; font-size: 0.9rem; overflow-x: auto;">${demoContent}</pre>`;
+        }
+
+        // Resume modal functions
+        function showResumeModal() {
+            document.getElementById('resumeModal').style.display = 'block';
+        }
+
+        function closeResumeModal() {
+            document.getElementById('resumeModal').style.display = 'none';
+        }
+
+        // Contact modal functions
+        function showContactModal() {
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const resumeModal = document.getElementById('resumeModal');
+            const contactModal = document.getElementById('contactModal');
+            
+            if (event.target == resumeModal) {
+                resumeModal.style.display = 'none';
+            }
+            if (event.target == contactModal) {
+                contactModal.style.display = 'none';
+            }
+        }
+
+        // Resume download function
+        function downloadResume() {
+            // 실제로는 PDF 파일 다운로드 링크를 제공
+            alert('이력서 다운로드 기능입니다. 실제 환경에서는 PDF 파일이 다운로드됩니다.');
+        }
 
         // Add scroll animation for cards
         const observerOptions = {
@@ -685,7 +1852,7 @@
         }, observerOptions);
 
         // Observe skill cards and other elements
-        document.querySelectorAll('.skill-card, .journey-item, .progress-item').forEach(el => {
+        document.querySelectorAll('.skill-card, .journey-item, .project-card, .blog-card, .stat-card, .tool-category').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -720,6 +1887,26 @@
             item.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(-2px) scale(1)';
             });
+        });
+
+        // Typewriter effect for hero title (optional)
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+            typing();
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any initialization code here
+            console.log('Portfolio loaded successfully!');
         });
     </script>
 </body>
