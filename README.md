@@ -1,3 +1,3 @@
 # ming2tofu33.github.io
 My portfolio website
-[💖💖💖](portfolio_website.html)
+[💖click here💖](https://ming2tofu33.github.io/)
