@@ -340,6 +340,31 @@
             color: #ff69b4;
         }
 
+        /* Platform Links */
+        .platform-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .platform-link {
+            background: rgba(255, 105, 180, 0.1);
+            color: #ff69b4;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .platform-link:hover {
+            background: rgba(255, 105, 180, 0.2);
+            border-color: #ff69b4;
+            transform: translateY(-2px);
+        }
+
         /* Projects Section */
         .projects-tabs {
             display: flex;
@@ -489,38 +514,6 @@
         .stat-label {
             color: #8892a0;
             font-size: 0.9rem;
-        }
-
-        /* Interactive Demo Section */
-        .demo-container {
-            margin: 3rem 0;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .demo-btn {
-            background: linear-gradient(45deg, #ff69b4, #ff1493);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            margin: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .demo-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .demo-output {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            font-family: 'Courier New', monospace;
-            text-align: left;
         }
 
         /* Journey Section */
@@ -773,13 +766,12 @@
             box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
         }
 
-        @media (max-width: 768px) {
-            .modal-content {
-                min-width: 90%;
-                max-width: 90%;
-                margin: 0 5%;
-            }
+        /* Collapsible sections */
+        .collapsible-section {
+            margin: 3rem 0;
         }
+
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -855,6 +847,16 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .modal-content {
+                min-width: 90%;
+                max-width: 90%;
+                margin: 0 5%;
+            }
+
+            .platform-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -900,8 +902,6 @@
                     <button class="btn btn-secondary" onclick="showContactModal()">연락하기</button>
                     <button class="btn btn-secondary" onclick="showResumeModal()">이력서 보기</button>
                 </div>
-            <!-- GitHub 활동 (접힘) -->
-            <div id="github-section" class="collapsible-section" style="display: none;">
             </div>
         </div>
     </section>
@@ -989,13 +989,12 @@
                         </li>
                     </ul>
 
-                    <!-- 개발 철학 -->
                     <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
                         <h4 style="color: #ff69b4; margin-bottom: 1rem;">개발 철학</h4>
                         <p style="color: #8892a0; font-size: 0.95rem;">
                             "데이터는 단순한 숫자가 아니라 스토리를 담고 있습니다. 
-                            이 스토리를 발견하고 가치 있는 인사이트로 변환하여 
-                            실질적인 문제 해결에 기여하는 것이 저의 목표입니다."
+                            다문화적 경험을 바탕으로 다양한 관점에서 데이터를 해석하고, 
+                            글로벌 환경에서도 소통할 수 있는 인사이트를 발굴하는 것이 저의 목표입니다."
                         </p>
                     </div>
                 </div>
@@ -1007,7 +1006,7 @@
                         <div style="margin: 2rem 0;">
                             <div style="margin-bottom: 0.5rem; font-size: 0.9rem;">
                                 <span style="color: #ff69b4;">언어:</span> 
-                                <span style="color: #b0b8c3;">한국어(Native), 영어(Intermediate)</span>
+                                <span style="color: #b0b8c3;">🇰🇷 한국어(Native), 🇨🇦 영어(Advanced)</span>
                             </div>
                             <div style="font-size: 0.9rem;">
                                 <span style="color: #ff69b4;">선호 협업:</span> 
@@ -1021,11 +1020,11 @@
             <!-- Stats Section -->
             <div class="stats-grid">
                 <div class="stat-card glass">
-                    <div class="stat-number">150+</div>
-                    <div class="stat-label">해결한 코딩테스트 문제</div>
+                    <div class="stat-number">5개</div>
+                    <div class="stat-label">플랫폼 활동 중</div>
                 </div>
                 <div class="stat-card glass">
-                    <div class="stat-number">5+</div>
+                    <div class="stat-number">5</div>
                     <div class="stat-label">완성한 프로젝트</div>
                 </div>
                 <div class="stat-card glass">
@@ -1033,8 +1032,8 @@
                     <div class="stat-label">Git TIL 포스트</div>
                 </div>
                 <div class="stat-card glass">
-                    <div class="stat-number">3+</div>
-                    <div class="stat-label">다뤄본 실제 데이터셋</div>
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">다뤄본 데이터셋</div>
                 </div>
             </div>
         </div>
@@ -1164,6 +1163,28 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 새로 추가된 알고리즘 & 코딩테스트 카드 -->
+                <div class="skill-card glass">
+                    <div class="skill-icon">🏆</div>
+                    <h3>알고리즘 & 코딩테스트</h3>
+                    <ul class="skill-list">
+                        <li>5개 플랫폼에서 활발히 활동</li>
+                        <li>다양한 난이도 문제 해결</li>
+                        <li>꾸준한 일일 학습 습관</li>
+                        <li>논리적 사고력 강화</li>
+                    </ul>
+                    <div class="platform-links">
+                        <a href="https://www.kaggle.com/ming2tofu33" target="_blank" class="platform-link">Kaggle</a>
+                        <a href="https://leetcode.com/u/0iFQoKsIUh/" target="_blank" class="platform-link">LeetCode</a>
+                        <a href="https://www.acmicpc.net/user/ming2tofu33" target="_blank" class="platform-link">Baekjoon</a>
+                        <a href="https://school.programmers.co.kr/learn/challenges?order=recent" target="_blank" class="platform-link">Programmers</a>
+                        <a href="https://dailyalgo.kr/ko" target="_blank" class="platform-link">DailyAlgo</a>
+                    </div>
+                    <div style="margin-top: 1rem; text-align: center; color: #8892a0; font-size: 0.8rem;">
+                        📈 지속적인 문제 해결로 알고리즘 실력 향상 중
+                    </div>
+                </div>
             </div>
 
             <!-- 작업 환경 -->
@@ -1176,16 +1197,25 @@
                             <li>VS Code, Jupyter Notebook</li>
                             <li>Python 3.9+</li>
                             <li>macOS / Windows</li>
-                            <li>Docker (학습 중)</li>
+                            <li>CLI Tools</li>
                         </ul>
                     </div>
                     <div class="tool-category glass">
-                        <h4>데이터 도구</h4>
+                        <h4>데이터 & 시각화</h4>
                         <ul class="tool-list">
                             <li>Pandas, NumPy</li>
                             <li>Matplotlib, Seaborn</li>
                             <li>Scikit-learn</li>
+                            <li>BeautifulSoup, Selenium</li>
+                        </ul>
+                    </div>
+                    <div class="tool-category glass">
+                        <h4>데이터베이스 & API</h4>
+                        <ul class="tool-list">
                             <li>PostgreSQL, MySQL</li>
+                            <li>REST API 활용</li>
+                            <li>Google Spreadsheet</li>
+                            <li>KOFIC API, 공공데이터</li>
                         </ul>
                     </div>
                     <div class="tool-category glass">
@@ -1195,15 +1225,6 @@
                             <li>Slack, Notion</li>
                             <li>Figma (기초)</li>
                             <li>Google Workspace</li>
-                        </ul>
-                    </div>
-                    <div class="tool-category glass">
-                        <h4>AI/ML 도구</h4>
-                        <ul class="tool-list">
-                            <li>OpenAI API</li>
-                            <li>LangChain</li>
-                            <li>Hugging Face</li>
-                            <li>TensorFlow (학습 중)</li>
                         </ul>
                     </div>
                 </div>
@@ -1221,8 +1242,7 @@
                 <button class="tab-btn active" onclick="showProjects('all')">전체</button>
                 <button class="tab-btn" onclick="showProjects('data')">데이터 분석</button>
                 <button class="tab-btn" onclick="showProjects('ml')">머신러닝</button>
-                <button class="tab-btn" onclick="showProjects('llm')">LLM 활용</button>
-                <button class="tab-btn" onclick="showProjects('web')">웹 개발</button>
+                <button class="tab-btn" onclick="showProjects('sql')">SQL</button>
             </div>
 
             <div class="projects-grid" id="projects-container">
@@ -1252,47 +1272,23 @@
                     </div>
                 </div>
 
-                <!-- 서울시 부동산 가격 분석 -->
-                <div class="project-card glass" data-category="data">
+                <!-- SQL 미니 프로젝트 -->
+                <div class="project-card glass" data-category="sql">
                     <div class="project-header">
                         <div>
-                            <h3 class="project-title">서울시 부동산 가격 분석</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">공공데이터를 활용한 부동산 시장 트렌드 분석</p>
+                            <h3 class="project-title">SQL 데이터베이스 분석 프로젝트</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">음악 데이터베이스를 활용한 다단계 SQL 분석</p>
                         </div>
                     </div>
                     <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Matplotlib</span>
-                        <span class="tech-tag">Seaborn</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Database Design</span>
                     </div>
                     <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        서울시 아파트 실거래가 데이터를 수집하고 전처리하여 지역별, 연도별 가격 변화 패턴을 시각화했습니다. 
-                        상관관계 분석을 통해 가격에 영향을 미치는 주요 요인들을 발견했습니다.
-                    </p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">GitHub</a>
-                        <a href="#" class="project-link">Demo</a>
-                    </div>
-                </div>
-
-                <!-- 머신러닝 프로젝트 -->
-                <div class="project-card glass" data-category="ml">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">고객 이탈 예측 모델</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">머신러닝을 활용한 고객 행동 분석 및 예측</p>
-                        </div>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">XGBoost</span>
-                        <span class="tech-tag">Feature Engineering</span>
-                    </div>
-                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        통신사 고객 데이터를 활용하여 이탈 가능성을 예측하는 분류 모델을 구축했습니다. 
-                        다양한 알고리즘을 비교 분석하고 최적의 하이퍼파라미터를 찾아 85% 이상의 정확도를 달성했습니다.
+                        음악 스트리밍 데이터베이스를 대상으로 하/중/상 난이도별 SQL 쿼리를 작성하고 분석했습니다. 
+                        고객 분석, 매출 집계, 코호트 분석 등 실무에서 활용할 수 있는 다양한 분석을 수행했습니다.
                     </p>
                     <div class="project-links">
                         <a href="#" class="project-link">GitHub</a>
@@ -1300,71 +1296,47 @@
                     </div>
                 </div>
 
-                <!-- LLM 프로젝트 -->
-                <div class="project-card glass" data-category="llm">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">AI 학습 도우미 챗봇</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">LangChain과 OpenAI API를 활용한 개인 맞춤형 학습 도우미</p>
-                        </div>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">LangChain</span>
-                        <span class="tech-tag">OpenAI API</span>
-                        <span class="tech-tag">Streamlit</span>
-                    </div>
-                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        사용자의 질문에 맞춤형 답변을 제공하는 AI 챗봇을 개발했습니다. 
-                        RAG(Retrieval Augmented Generation) 기법을 적용하여 정확한 정보 제공과 개인화된 학습 경험을 구현했습니다.
-                    </p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">GitHub</a>
-                        <a href="#" class="project-link">Live Demo</a>
-                    </div>
-                </div>
-
-                <!-- 웹 개발 프로젝트 -->
-                <div class="project-card glass" data-category="web">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">데이터 시각화 대시보드</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">실시간 데이터 모니터링을 위한 웹 대시보드</p>
-                        </div>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Streamlit</span>
-                        <span class="tech-tag">Plotly</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                    </div>
-                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        비즈니스 KPI를 실시간으로 모니터링할 수 있는 인터랙티브 대시보드를 제작했습니다. 
-                        다양한 차트와 필터 기능을 통해 사용자가 원하는 관점에서 데이터를 분석할 수 있도록 구현했습니다.
-                    </p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">GitHub</a>
-                        <a href="#" class="project-link">Live Demo</a>
-                    </div>
-                </div>
-
-                <!-- 추가 프로젝트 -->
+                <!-- CAC/LTV 분석 프로젝트 -->
                 <div class="project-card glass" data-category="data">
                     <div class="project-header">
                         <div>
-                            <h3 class="project-title">코로나19 데이터 분석</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">시계열 데이터 분석을 통한 감염 추세 파악</p>
+                            <h3 class="project-title">고객 획득비용(CAC) & 생애가치(LTV) 분석</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">비즈니스 지표 분석을 통한 마케팅 ROI 최적화</p>
                         </div>
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Time Series</span>
-                        <span class="tech-tag">Visualization</span>
+                        <span class="tech-tag">Business Analytics</span>
+                        <span class="tech-tag">Cohort Analysis</span>
                     </div>
                     <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        공공데이터포털의 코로나19 데이터를 활용하여 감염 확산 패턴을 분석했습니다. 
-                        지역별, 연령별 감염 추세를 시각화하고 계절성 패턴을 발견했습니다.
+                        채널별 고객 획득 비용과 생애 가치를 분석하여 마케팅 효율성을 평가했습니다. 
+                        코호트 분석을 통해 고객 유지율을 분석하고 개선 전략을 도출했습니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">GitHub</a>
+                        <a href="#" class="project-link">Report</a>
+                    </div>
+                </div>
+
+                <!-- Titanic 분석 -->
+                <div class="project-card glass" data-category="ml">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Titanic 생존 요인 분석</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">머신러닝을 활용한 승객 생존율 예측 및 요인 분석</p>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Data Preprocessing</span>
+                        <span class="tech-tag">EDA</span>
+                    </div>
+                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
+                        타이타닉 승객 데이터를 활용하여 생존에 영향을 미친 주요 요인을 분석했습니다. 
+                        이상치 처리, 특성 엔지니어링을 통해 데이터를 전처리하고 분류 모델의 성능을 향상시켰습니다.
                     </p>
                     <div class="project-links">
                         <a href="#" class="project-link">GitHub</a>
@@ -1372,41 +1344,28 @@
                     </div>
                 </div>
 
-                <div class="project-card glass" data-category="data">
+                <!-- Red Wine Quality -->
+                <div class="project-card glass" data-category="ml">
                     <div class="project-header">
                         <div>
-                            <h3 class="project-title">영화 데이터 분석 프로젝트</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">TMDB API를 활용한 영화 데이터 수집 및 분석</p>
+                            <h3 class="project-title">와인 품질 예측 머신러닝</h3>
+                            <p style="color: #8892a0; font-size: 0.9rem;">화학적 특성을 이용한 와인 품질 등급 예측</p>
                         </div>
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TMDB API</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Feature Selection</span>
+                        <span class="tech-tag">Model Evaluation</span>
                     </div>
                     <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        TMDB API를 통해 영화 데이터를 수집하고 분석한 프로젝트입니다. 
-                        영화의 장르, 평점, 개봉년도 등 다양한 요소들을 분석하여 인사이트를 도출했습니다.
+                        적포도주의 화학적 성분 데이터를 활용하여 품질 등급을 예측하는 분류 모델을 개발했습니다. 
+                        다양한 머신러닝 알고리즘을 비교하고 최적의 하이퍼파라미터를 찾아 성능을 최적화했습니다.
                     </p>
                     <div class="project-links">
-                        <a href="https://github.com/ming2tofu33/pjt-movie-analysis" class="project-link" target="_blank">GitHub</a>
-                        <a href="#" class="project-link">Report</a>
+                        <a href="#" class="project-link">GitHub</a>
+                        <a href="#" class="project-link">Analysis</a>
                     </div>
-                </div>
-            </div>
-
-            <!-- 인터랙티브 데모 섹션 -->
-            <div class="demo-container glass" style="margin-top: 3rem;">
-                <h3 style="color: #ff69b4; margin-bottom: 1rem;">라이브 데모</h3>
-                <p style="color: #8892a0; margin-bottom: 2rem;">간단한 데이터 분석 예시를 체험해보세요</p>
-                
-                <button class="demo-btn" onclick="runDemo('chart')">차트 생성하기</button>
-                <button class="demo-btn" onclick="runDemo('stats')">통계 분석</button>
-                <button class="demo-btn" onclick="runDemo('prediction')">예측 모델</button>
-                
-                <div class="demo-output" id="demo-output" style="display: none;">
-                    <!-- 데모 결과가 여기에 표시됩니다 -->
                 </div>
             </div>
         </div>
@@ -1441,11 +1400,11 @@
                     <p style="color: #8892a0; margin-bottom: 2rem; text-align: center;">꾸준한 코딩과 프로젝트 진행 상황</p>
                     <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
                         <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">180+</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">150+</div>
                             <div style="font-size: 0.9rem; color: #8892a0;">총 커밋</div>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">12</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">6</div>
                             <div style="font-size: 0.9rem; color: #8892a0;">공개 저장소</div>
                         </div>
                         <div style="text-align: center;">
@@ -1497,18 +1456,6 @@
                         <p class="blog-excerpt">
                             머신러닝 기본 개념과 알고리즘들을 정리했습니다. 
                             지도학습과 비지도학습, 주요 알고리즘의 특징과 활용법을 체계적으로 학습했습니다.
-                        </p>
-                        <div style="margin-top: 1rem;">
-                            <span class="tech-tag" style="font-size: 0.8rem;">Machine Learning</span>
-                            <span class="tech-tag" style="font-size: 0.8rem;">Algorithm</span>
-                        </div>
-                    </div>
-                    <div class="blog-card glass">
-                        <div class="blog-date">August 26, 2025</div>
-                        <h4 class="blog-title">Data Analysis</h4>
-                        <p class="blog-excerpt">
-                            데이터 분석의 전체 프로세스와 핵심 기법들을 정리했습니다. 
-                            EDA부터 시각화까지 실무에서 활용할 수 있는 분석 방법론을 학습했습니다.
                         </p>
                         <div style="margin-top: 1rem;">
                             <span class="tech-tag" style="font-size: 0.8rem;">Data Analysis</span>
@@ -1586,63 +1533,27 @@
                 <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">문제 해결 경험</h3>
                 <div class="blog-grid">
                     <div class="blog-card glass">
-                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">메모리 부족 문제 해결</h4>
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">API 데이터 수집 최적화</h4>
                         <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                            대용량 CSV 파일 처리 시 메모리 부족 문제를 청크 단위 처리와 
-                            데이터 타입 최적화를 통해 해결했습니다. 처리 시간도 40% 단축시켰습니다.
+                            KOFIC API 호출 시 요청 제한을 고려한 데이터 수집 로직을 구현했습니다. 
+                            배치 처리와 딜레이를 활용하여 안정적인 데이터 수집을 구현했습니다.
                         </p>
                     </div>
                     <div class="blog-card glass">
-                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">모델 과적합 문제</h4>
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">크롤링 데이터 정제</h4>
                         <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                            교차 검증과 정규화 기법을 적용하여 과적합을 방지하고 
-                            일반화 성능을 15% 향상시킨 경험을 공유했습니다.
+                            네이버 평점 크롤링 시 불규칙한 HTML 구조 문제를 예외 처리와 
+                            다중 셀렉터를 통해 해결했습니다.
                         </p>
                     </div>
                     <div class="blog-card glass">
-                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">API 응답 시간 최적화</h4>
+                        <h4 style="color: #ff69b4; margin-bottom: 1rem;">데이터 타입 불일치 해결</h4>
                         <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                            LLM API 호출 최적화를 통해 응답 시간을 2초에서 0.5초로 단축시킨 
-                            캐싱 전략과 배치 처리 방법을 정리했습니다.
+                            다양한 소스의 데이터를 병합할 때 발생한 데이터 타입 불일치 문제를 
+                            전처리 단계에서 체계적으로 해결했습니다.
                         </p>
                     </div>
                 </div>
-            </div>
-
-            <!-- 기술 트렌드 관심사 -->
-            <div style="margin: 3rem 0;">
-                <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">관심 있는 기술 트렌드</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">LLM Fine-tuning</span>
-                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">MLOps</span>
-                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Real-time Analytics</span>
-                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">AutoML</span>
-                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Graph Neural Networks</span>
-                    <span class="tech-tag" style="font-size: 1rem; padding: 0.8rem 1.5rem;">Federated Learning</span>
-                </div>
-            </div>
-
-            <!-- GitHub 활동 -->
-            <div class="glass" style="padding: 2rem; text-align: center; margin-top: 3rem;">
-                <h4 style="color: #ff69b4; margin-bottom: 1rem;">GitHub 활동</h4>
-                <p style="color: #8892a0; margin-bottom: 2rem;">꾸준한 코딩과 프로젝트 진행 상황</p>
-                <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
-                    <div>
-                        <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">180+</div>
-                        <div style="font-size: 0.9rem; color: #8892a0;">총 커밋</div>
-                    </div>
-                    <div>
-                        <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">12</div>
-                        <div style="font-size: 0.9rem; color: #8892a0;">공개 저장소</div>
-                    </div>
-                    <div>
-                        <div style="font-size: 1.5rem; font-weight: bold; color: #ff69b4;">50+</div>
-                        <div style="font-size: 0.9rem; color: #8892a0;">TIL 포스트</div>
-                    </div>
-                </div>
-                <a href="https://github.com/ming2tofu33" style="color: #ff69b4; text-decoration: none; margin-top: 1rem; display: inline-block;">
-                    GitHub에서 더 보기 →
-                </a>
             </div>
         </div>
     </section>
@@ -1696,27 +1607,63 @@
             <div class="journey-timeline">
                 <div class="journey-item">
                     <div class="journey-content glass">
-                        <div class="journey-date">현재</div>
-                        <h3 class="journey-title">데이터 분석 & AI 개발</h3>
-                        <p>Python을 활용한 데이터 분석부터 머신러닝 모델 개발, LLM 활용까지 다양한 프로젝트를 진행하며 실무 경험을 쌓고 있습니다.</p>
+                        <div class="journey-date">2011 - 2017</div>
+                        <h3 class="journey-title">캐나다 유학</h3>
+                        <p>중고등학교를 졸업하고 University of Toronto에서 Computer Science를 1년간 공부했습니다. 다양한 문화권의 친구들과 함께 생활하며 글로벌한 시각과 영어 소통 능력을 키웠습니다.</p>
+                    </div>
+                    <div class="journey-icon">🇨🇦</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-content glass">
+                        <div class="journey-date">2019 - 2020</div>
+                        <h3 class="journey-title">광고 기획</h3>
+                        <p>광고대행사에서 PPL 모니터링과 콘텐츠 기획 업무를 맡았습니다. 광고 효과를 분석하고 더 나은 마케팅 전략을 세우는 일을 했습니다.</p>
+                    </div>
+                    <div class="journey-icon">📱</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-content glass">
+                        <div class="journey-date">2021 - 2022</div>
+                        <h3 class="journey-title">스키 강사</h3>
+                        <p>스키 리조트에서 초보자부터 상급자까지 다양한 수준의 고객들에게 스키를 가르쳤습니다. 개인별 특성에 맞춘 맞춤형 강습을 진행했습니다.</p>
+                    </div>
+                    <div class="journey-icon">⛷️</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-content glass">
+                        <div class="journey-date">2022 - 2023</div>
+                        <h3 class="journey-title">영어 유치원 교사</h3>
+                        <p>영어 유치원에서 유치원생들에게 영어를 가르쳤습니다. 아이들이 재미있게 영어를 배울 수 있도록 다양한 교육 프로그램을 운영했습니다.</p>
+                    </div>
+                    <div class="journey-icon">🏫</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-content glass">
+                        <div class="journey-date">2023 - 2025</div>
+                        <h3 class="journey-title">리조트 운영</h3>
+                        <p>스키 리조트에서 강사와 운영 업무를 병행했습니다. 두 시즌에 걸쳐 고객 관리와 서비스 품질 개선에 참여했습니다.</p>
+                    </div>
+                    <div class="journey-icon">🏔️</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-content glass">
+                        <div class="journey-date">2024.09 - 현재</div>
+                        <h3 class="journey-title">데이터 사이언티스트로 성장 중</h3>
+                        <p>SeSAC에서 데이터 분석 과정을 수강하며 Python, SQL, 머신러닝을 배우고 있습니다. 매일 알고리즘 문제를 풀고, 실제 프로젝트를 진행하며 실력을 쌓아가고 있습니다.</p>
                     </div>
                     <div class="journey-icon">📊</div>
                 </div>
 
                 <div class="journey-item">
                     <div class="journey-content glass">
-                        <div class="journey-date">지속 중</div>
-                        <h3 class="journey-title">꾸준한 학습과 성장</h3>
-                        <p>매일 Git TIL을 작성하고 코딩테스트 문제를 해결하며, 새로운 기술과 트렌드를 학습해 개발 역량을 지속적으로 향상시키고 있습니다.</p>
-                    </div>
-                    <div class="journey-icon">💻</div>
-                </div>
-
-                <div class="journey-item">
-                    <div class="journey-content glass">
                         <div class="journey-date">목표</div>
-                        <h3 class="journey-title">데이터 기반 솔루션 전문가</h3>
-                        <p>복잡한 비즈니스 문제를 데이터와 AI로 해결하고, 실질적인 가치를 창출할 수 있는 전문가로 성장하는 것이 목표입니다.</p>
+                        <h3 class="journey-title">데이터로 문제를 해결하는 전문가</h3>
+                        <p>지금까지의 다양한 경험을 바탕으로 비즈니스 문제를 데이터로 해결할 수 있는 전문가가 되고 싶습니다. 실무에서 바로 활용할 수 있는 인사이트를 만들어내는 것이 목표입니다.</p>
                     </div>
                     <div class="journey-icon">🎯</div>
                 </div>
@@ -1852,85 +1799,6 @@
             });
         }
 
-        // Demo functions
-        function runDemo(type) {
-            const output = document.getElementById('demo-output');
-            output.style.display = 'block';
-            
-            let demoContent = '';
-            
-            switch(type) {
-                case 'chart':
-                    demoContent = `
-# 데이터 시각화 데모
-import matplotlib.pyplot as plt
-import numpy as np
-
-# 샘플 데이터 생성
-data = np.random.randn(100).cumsum()
-plt.plot(data)
-plt.title('Random Walk Visualization')
-plt.show()
-
-결과: 무작위 걸음 차트가 생성되었습니다.
-                    `;
-                    break;
-                case 'stats':
-                    demoContent = `
-# 통계 분석 데모
-import pandas as pd
-import numpy as np
-
-# 샘플 데이터
-data = pd.DataFrame({
-    'sales': np.random.normal(1000, 200, 50),
-    'profit': np.random.normal(150, 50, 50)
-})
-
-# 기본 통계
-print(f"평균 매출: {data['sales'].mean():.2f}")
-print(f"평균 이익: {data['profit'].mean():.2f}")
-print(f"상관계수: {data.corr().iloc[0,1]:.3f}")
-
-결과: 매출과 이익의 상관관계가 분석되었습니다.
-                    `;
-                    break;
-                case 'prediction':
-                    demoContent = `
-# 예측 모델 데모
-from sklearn.linear_model import LinearRegression
-import numpy as np
-
-# 가상의 주택 가격 예측 모델
-X = np.random.rand(100, 1) * 100  # 면적
-y = X.ravel() * 3 + np.random.rand(100) * 50  # 가격
-
-model = LinearRegression()
-model.fit(X, y)
-
-# 새로운 주택 예측
-new_house = [[80]]  # 80평
-prediction = model.predict(new_house)
-
-print(f"80평 주택 예상 가격: {prediction[0]:.2f}만원")
-
-결과: 선형 회귀 모델이 주택 가격을 예측했습니다.
-                    `;
-                    break;
-            }
-            
-            output.innerHTML = `<pre style="color: #00ff00; font-size: 0.9rem; overflow-x: auto;">${demoContent}</pre>`;
-        }
-
-        // Resume modal functions
-        function showResumeModal() {
-            document.getElementById('resumeModal').style.display = 'block';
-        }
-
-        function closeResumeModal() {
-            document.getElementById('resumeModal').style.display = 'none';
-        }
-
         // Section toggle function
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
@@ -1958,6 +1826,15 @@ print(f"80평 주택 예상 가격: {prediction[0]:.2f}만원")
             } else {
                 section.style.display = 'none';
             }
+        }
+
+        // Resume modal functions
+        function showResumeModal() {
+            document.getElementById('resumeModal').style.display = 'block';
+        }
+
+        function closeResumeModal() {
+            document.getElementById('resumeModal').style.display = 'none';
         }
 
         // Contact modal functions
@@ -2041,23 +1918,8 @@ print(f"80평 주택 예상 가격: {prediction[0]:.2f}만원")
             });
         });
 
-        // Typewriter effect for hero title (optional)
-        function typeWriter(element, text, speed = 50) {
-            let i = 0;
-            element.innerHTML = '';
-            function typing() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typing, speed);
-                }
-            }
-            typing();
-        }
-
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Add any initialization code here
             console.log('Portfolio loaded successfully!');
         });
     </script>
