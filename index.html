@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domin Kim - AI & Data Analytics Portfolio</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ming2tofu33/ming2tofu33.github.io/main/favicon.png">
     <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/ming2tofu33/ming2tofu33.github.io/main/favicon.png">
     
@@ -775,6 +774,38 @@
         .collapsible-section {
             margin: 3rem 0;
         }
+        
+        /* platform-list styling within modal */
+        .platform-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .platform-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .platform-list li:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .platform-list a {
+            color: #ff69b4;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .platform-list a:hover {
+            color: #00ffff;
+        }
 
         /* Animations */
         @keyframes fadeInUp {
@@ -866,10 +897,9 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">DK</div>
+            <div class="nav-logo"><a href="#hero" style="text-decoration: none; color: #ff69b4;">DK</a></div>
             <ul class="nav-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -886,19 +916,17 @@
         </div>
     </nav>
 
-    <!-- Floating Particles -->
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
 
-    <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Domin Kim</h1>
                 <p class="subtitle"><span class="highlight">Data Scientist</span> & AI Engineer</p>
                 <p>
-                    데이터의 힘으로 인사이트를 발견하고, AI 기술을 활용해 문제를 해결합니다. 
+                    데이터에서 의미 있는 패턴을 찾아내고, AI로 실제 문제를 해결하는 일을 하고 있습니다. 
                     매일 새로운 기술을 학습하고, 실제 프로젝트를 통해 경험을 쌓아가며 
                     데이터 기반 의사결정과 지능형 솔루션 개발에 집중하고 있습니다.
                 </p>
@@ -911,7 +939,6 @@
         </div>
     </section>
 
-    <!-- Resume Modal -->
     <div id="resumeModal" class="modal">
         <div class="modal-content glass">
             <span class="modal-close" onclick="closeResumeModal()">&times;</span>
@@ -933,7 +960,6 @@
         </div>
     </div>
 
-    <!-- Contact Modal -->
     <div id="contactModal" class="modal">
         <div class="modal-content glass">
             <span class="modal-close" onclick="closeContactModal()">&times;</span>
@@ -957,7 +983,48 @@
         </div>
     </div>
 
-    <!-- About Section -->
+    <div id="platformsModal" class="modal">
+        <div class="modal-content glass">
+            <span class="modal-close" onclick="closePlatformsModal()">&times;</span>
+            <h3 class="modal-title">코딩테스트 플랫폼</h3>
+            <p style="color: #8892a0; margin-bottom: 1.5rem;">
+                다양한 플랫폼에서 실력을 쌓아가고 있습니다.
+            </p>
+            <ul class="platform-list">
+                <li>
+                    <a href="https://www.kaggle.com/ming2tofu33" target="_blank" onclick="closePlatformsModal()">
+                        <span>Kaggle</span>
+                        <span>&rarr;</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://leetcode.com/u/0iFQoKsIUh/" target="_blank" onclick="closePlatformsModal()">
+                        <span>LeetCode</span>
+                        <span>&rarr;</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.acmicpc.net/user/ming2tofu33" target="_blank" onclick="closePlatformsModal()">
+                        <span>Baekjoon</span>
+                        <span>&rarr;</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://school.programmers.co.kr/learn/challenges?order=recent" target="_blank" onclick="closePlatformsModal()">
+                        <span>Programmers</span>
+                        <span>&rarr;</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://dailyalgo.kr/ko" target="_blank" onclick="closePlatformsModal()">
+                        <span>DailyAlgo</span>
+                        <span>&rarr;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
@@ -965,8 +1032,8 @@
                 <div class="about-text glass">
                     <h3 style="color: #ff69b4; margin-bottom: 1rem;">끊임없는 학습과 실전 경험</h3>
                     <p style="margin-bottom: 1.5rem;">
-                        데이터 분석과 AI 기술을 활용한 문제 해결에 집중하며, 
-                        이론과 실습을 병행하여 실무 역량을 지속적으로 키워가고 있습니다.
+                        데이터 분석과 AI 기술로 문제를 해결하는 데 집중하고 있습니다. 
+                        이론 공부와 실제 프로젝트를 함께 진행하며 실력을 쌓아가고 있습니다.
                     </p>
                     <ul style="list-style: none; padding: 0; margin-top: 1.5rem;">
                         <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
@@ -987,8 +1054,8 @@
                         <h4 style="color: #ff69b4; margin-bottom: 1rem;">개발 철학</h4>
                         <p style="color: #8892a0; font-size: 0.95rem;">
                             "데이터는 단순한 숫자가 아니라 스토리를 담고 있습니다. 
-                            다문화적 경험을 바탕으로 다양한 관점에서 데이터를 해석하고, 
-                            글로벌 환경에서도 소통할 수 있는 인사이트를 발굴하는 것이 저의 목표입니다."
+                            해외 경험을 통해 얻은 다양한 시각으로 데이터를 바라보고, 
+                            어디서든 소통할 수 있는 인사이트를 만들어내고 싶습니다."
                         </p>
                     </div>
                 </div>
@@ -1010,30 +1077,9 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Stats Section -->
-            <div class="stats-grid">
-                <div class="stat-card glass">
-                    <div class="stat-number">5개</div>
-                    <div class="stat-label">플랫폼 활동 중</div>
-                </div>
-                <div class="stat-card glass">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">완성한 프로젝트</div>
-                </div>
-                <div class="stat-card glass">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Git TIL 포스트</div>
-                </div>
-                <div class="stat-card glass">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">다뤄본 데이터셋</div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
@@ -1047,15 +1093,6 @@
                         <li>기초 통계 및 데이터 심화</li>
                         <li>EDA(탐색적 데이터 분석)</li>
                     </ul>
-                    <div style="margin-top: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                            <span style="font-size: 0.9rem;">숙련도</span>
-                            <span style="font-size: 0.8rem; color: #ff69b4;">80%</span>
-                        </div>
-                        <div class="progress-bar" style="height: 4px;">
-                            <div class="progress-fill" style="width: 80%;"></div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="skill-card glass">
@@ -1067,15 +1104,6 @@
                         <li>비지도 학습 기초</li>
                         <li>모델 평가 및 개선</li>
                     </ul>
-                    <div style="margin-top: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                            <span style="font-size: 0.9rem;">숙련도</span>
-                            <span style="font-size: 0.8rem; color: #ff69b4;">70%</span>
-                        </div>
-                        <div class="progress-bar" style="height: 4px;">
-                            <div class="progress-fill" style="width: 70%;"></div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="skill-card glass">
@@ -1087,15 +1115,6 @@
                         <li>LangChain 프레임워크</li>
                         <li>LLM Agent 설계</li>
                     </ul>
-                    <div style="margin-top: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                            <span style="font-size: 0.9rem;">숙련도</span>
-                            <span style="font-size: 0.8rem; color: #ff69b4;">75%</span>
-                        </div>
-                        <div class="progress-bar" style="height: 4px;">
-                            <div class="progress-fill" style="width: 75%;"></div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="skill-card glass">
@@ -1107,15 +1126,6 @@
                         <li>네이버 영화 평점 크롤링 경험</li>
                         <li>API와 크롤링 데이터 결합</li>
                     </ul>
-                    <div style="margin-top: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                            <span style="font-size: 0.9rem;">숙련도</span>
-                            <span style="font-size: 0.8rem; color: #ff69b4;">70%</span>
-                        </div>
-                        <div class="progress-bar" style="height: 4px;">
-                            <div class="progress-fill" style="width: 70%;"></div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="skill-card glass">
@@ -1127,15 +1137,6 @@
                         <li>데이터 스토리텔링</li>
                         <li>시각적 인사이트 발굴</li>
                     </ul>
-                    <div style="margin-top: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                            <span style="font-size: 0.9rem;">숙련도</span>
-                            <span style="font-size: 0.8rem; color: #ff69b4;">75%</span>
-                        </div>
-                        <div class="progress-bar" style="height: 4px;">
-                            <div class="progress-fill" style="width: 75%;"></div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="skill-card glass">
@@ -1147,18 +1148,8 @@
                         <li>커밋 메시지 컨벤션</li>
                         <li>코드 리뷰 및 협업</li>
                     </ul>
-                    <div style="margin-top: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                            <span style="font-size: 0.9rem;">숙련도</span>
-                            <span style="font-size: 0.8rem; color: #ff69b4;">80%</span>
-                        </div>
-                        <div class="progress-bar" style="height: 4px;">
-                            <div class="progress-fill" style="width: 80%;"></div>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- 새로 추가된 알고리즘 & 코딩테스트 카드 -->
                 <div class="skill-card glass">
                     <div class="skill-icon">🏆</div>
                     <h3>알고리즘 & 코딩테스트</h3>
@@ -1168,20 +1159,12 @@
                         <li>꾸준한 일일 학습 습관</li>
                         <li>논리적 사고력 강화</li>
                     </ul>
-                    <div class="platform-links">
-                        <a href="https://www.kaggle.com/ming2tofu33" target="_blank" class="platform-link">Kaggle</a>
-                        <a href="https://leetcode.com/u/0iFQoKsIUh/" target="_blank" class="platform-link">LeetCode</a>
-                        <a href="https://www.acmicpc.net/user/ming2tofu33" target="_blank" class="platform-link">Baekjoon</a>
-                        <a href="https://school.programmers.co.kr/learn/challenges?order=recent" target="_blank" class="platform-link">Programmers</a>
-                        <a href="https://dailyalgo.kr/ko" target="_blank" class="platform-link">DailyAlgo</a>
-                    </div>
-                    <div style="margin-top: 1rem; text-align: center; color: #8892a0; font-size: 0.8rem;">
-                        📈 지속적인 문제 해결로 알고리즘 실력 향상 중
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                         <button class="btn btn-secondary" onclick="showPlatformsModal()">플랫폼 보기</button>
                     </div>
                 </div>
             </div>
 
-            <!-- 작업 환경 -->
             <div style="margin-top: 4rem;">
                 <h3 style="text-align: center; color: #ff69b4; margin-bottom: 2rem;">작업 환경 & 도구</h3>
                 <div class="tools-grid">
@@ -1226,12 +1209,10 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title">Projects</h2>
             
-            <!-- Project Tabs -->
             <div class="projects-tabs">
                 <button class="tab-btn active" onclick="showProjects('all')">전체</button>
                 <button class="tab-btn" onclick="showProjects('data')">데이터 분석</button>
@@ -1240,7 +1221,6 @@
             </div>
 
             <div class="projects-grid" id="projects-container">
-                <!-- 영화 데이터 분석 프로젝트 -->
                 <div class="project-card glass" data-category="data">
                     <div class="project-header">
                         <div>
@@ -1267,7 +1247,6 @@
                     </div>
                 </div>
 
-                <!-- SQL 미니 프로젝트 -->
                 <div class="project-card glass" data-category="sql">
                     <div class="project-header">
                         <div>
@@ -1291,7 +1270,6 @@
                     </div>
                 </div>
 
-                <!-- CAC/LTV 분석 프로젝트 -->
                 <div class="project-card glass" data-category="data">
                     <div class="project-header">
                         <div>
@@ -1315,7 +1293,6 @@
                     </div>
                 </div>
 
-                <!-- Titanic 분석 -->
                 <div class="project-card glass" data-category="ml">
                     <div class="project-header">
                         <div>
@@ -1339,7 +1316,6 @@
                     </div>
                 </div>
 
-                <!-- Red Wine Quality -->
                 <div class="project-card glass" data-category="ml">
                     <div class="project-header">
                         <div>
@@ -1366,7 +1342,6 @@
         </div>
     </section>
 
-    <!-- Learning Section -->
     <section id="learning" class="section">
         <div class="container">
             <h2 class="section-title">Learning & Growth</h2>
@@ -1375,9 +1350,7 @@
                 <p style="color: #8892a0;">지속적인 학습과 기술 공유를 통해 성장하고 있습니다</p>
             </div>
 
-            <!-- GitHub 활동 - 상단 고정 -->
             <div style="margin-bottom: 4rem;">
-                <!-- 관심 있는 기술 트렌드 -->
                 <div style="margin-bottom: 3rem;">
                     <h4 style="color: #ff69b4; margin-bottom: 1.5rem; text-align: center;">관심 있는 기술 트렌드</h4>
                     <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
@@ -1415,7 +1388,6 @@
                 </div>
             </div>
 
-            <!-- 학습 요약 카드 -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
                 <div class="glass" style="padding: 2rem; text-align: center;">
                     <h4 style="color: #ff69b4; margin-bottom: 1rem;">학습 노트</h4>
@@ -1433,7 +1405,6 @@
                 </div>
             </div>
 
-            <!-- 노션 학습 노트 (접힘) -->
             <div id="notes-section" class="collapsible-section" style="display: none;">
                 <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">학습 노트 모음</h3>
                 <div style="text-align: center; margin-bottom: 2rem;">
@@ -1484,7 +1455,6 @@
                 </div>
             </div>
 
-            <!-- TIL & 최근 학습 기록 (접힘) -->
             <div id="til-section" class="collapsible-section" style="display: none;">
                 <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">최근 학습 기록 (TIL)</h3>
                 <div class="blog-grid">
@@ -1523,7 +1493,6 @@
                 </div>
             </div>
 
-            <!-- 문제 해결 경험 -->
             <div style="margin: 3rem 0;">
                 <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">문제 해결 경험</h3>
                 <div class="blog-grid">
@@ -1553,12 +1522,10 @@
         </div>
     </section>
 
-    <!-- Journey Section -->
     <section id="journey" class="section">
         <div class="container">
             <h2 class="section-title">My Journey</h2>
             
-            <!-- 미래 계획 -->
             <div style="text-align: center; margin-bottom: 3rem;">
                 <h3 style="color: #ff69b4; margin-bottom: 1rem;">단기 & 장기 목표</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
@@ -1655,7 +1622,6 @@
                 </div>
             </div>
 
-            <!-- 커뮤니티 활동 -->
             <div style="margin-top: 4rem;">
                 <h3 style="color: #ff69b4; margin-bottom: 2rem; text-align: center;">커뮤니티 & 네트워킹</h3>
                 <div class="blog-grid">
@@ -1685,13 +1651,12 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="container">
             <div class="contact-content">
                 <h2 class="section-title">Let's Connect</h2>
                 <p style="color: #8892a0; margin-bottom: 2rem;">
-                    새로운 기회와 도전을 기다리고 있습니다. 언제든지 연락해주세요!
+                    새로운 기회에 도전하고 싶습니다. 언제든지 연락해주세요!
                 </p>
                 <div class="contact-info">
                     <a href="mailto:ming2tofu33@gmail.com" class="contact-item" style="text-decoration: none; color: inherit;">
@@ -1717,7 +1682,6 @@
                     </a>
                 </div>
 
-                <!-- 이력서 보기 -->
                 <div style="margin: 3rem 0;">
                     <button class="btn btn-primary" onclick="showResumeModal()" style="font-size: 1.1rem; padding: 15px 40px;">
                         이력서 보기
@@ -1832,16 +1796,29 @@
             document.getElementById('contactModal').style.display = 'none';
         }
 
+        // Platforms modal functions (New)
+        function showPlatformsModal() {
+            document.getElementById('platformsModal').style.display = 'block';
+        }
+
+        function closePlatformsModal() {
+            document.getElementById('platformsModal').style.display = 'none';
+        }
+
         // Close modal when clicking outside
         window.onclick = function(event) {
             const resumeModal = document.getElementById('resumeModal');
             const contactModal = document.getElementById('contactModal');
+            const platformsModal = document.getElementById('platformsModal');
             
             if (event.target == resumeModal) {
                 resumeModal.style.display = 'none';
             }
             if (event.target == contactModal) {
                 contactModal.style.display = 'none';
+            }
+            if (event.target == platformsModal) {
+                platformsModal.style.display = 'none';
             }
         }
 
