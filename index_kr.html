@@ -391,94 +391,462 @@
         }
 
         /* Projects Section */
-        .projects-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
+        .projects-section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .tab-btn {
-            padding: 10px 25px;
-            background: transparent;
-            border: 2px solid rgba(255, 105, 180, 0.3);
-            border-radius: 25px;
-            color: #8892a0;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        /* Featured Projects */
+        .featured-projects {
+            margin-bottom: 5rem;
+            padding: 0 2rem;
         }
 
-        .tab-btn.active {
-            background: #ff69b4;
-            color: #ffffff;
-            border-color: #ff69b4;
+        .featured-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #ff69b4 0%, #ff1493 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
         }
 
-        .projects-grid {
+        .featured-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
 
-        .project-card {
+        .featured-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            border-radius: 20px;
             padding: 2rem;
-            transition: transform 0.3s ease;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
+        .featured-card:hover {
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+            border-color: rgba(255, 105, 180, 0.4);
         }
 
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+        .featured-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
         .project-title {
-            color: #ff69b4;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
             margin-bottom: 0.5rem;
+            color: #ffffff;
         }
 
-        .project-tech {
+        .project-status {
+            font-size: 0.9rem;
+            color: #ff69b4;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: #f8f8f8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #f8f8f8;
+            font-size: 0.95rem;
+        }
+
+        .project-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ff69b4;
+            font-weight: bold;
+        }
+
+        .tech-stack {
             display: flex;
-            gap: 0.5rem;
-            margin: 1rem 0;
             flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .tech-tag {
-            background: rgba(255, 105, 180, 0.1);
+            background: rgba(255, 105, 180, 0.2);
             color: #ff69b4;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
+            font-weight: 500;
             border: 1px solid rgba(255, 105, 180, 0.3);
+            transition: all 0.2s ease;
         }
 
         .project-links {
             display: flex;
             gap: 1rem;
+        }
+
+        .project-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            box-shadow: 0 4px 16px rgba(255, 105, 180, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ff69b4;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 24px rgba(255, 105, 180, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 105, 180, 0.1);
+        }
+
+        /* Filter Tags */
+        .filter-section {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
             margin-top: 1rem;
         }
 
-        .project-link {
-            color: #ff69b4;
-            text-decoration: none;
+        .filter-tag {
+            background: rgba(255, 255, 255, 0.05);
+            color: #8892a0;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
             font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+        }
+
+        .filter-tag:hover {
+            background: rgba(255, 105, 180, 0.1);
+            border-color: rgba(255, 105, 180, 0.4);
+        }
+
+        .filter-tag.active {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            border-color: #ff69b4;
+        }
+
+        /* Mini Projects Carousel */
+        .mini-projects {
+            padding: 0 2rem;
+        }
+
+        .mini-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #ff69b4 0%, #ff1493 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+        }
+
+        .carousel-container {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 1rem 0;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Carousel Navigation Buttons */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            border-radius: 50%;
+            color: #ff69b4;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .carousel-btn:hover:not(:disabled) {
+            background: rgba(255, 105, 180, 0.2);
+            border-color: #ff69b4;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .carousel-btn:disabled:hover {
+            transform: translateY(-50%);
+        }
+
+        #prevBtn {
+            left: -25px;
+        }
+
+        #nextBtn {
+            right: -25px;
+        }
+
+        /* Mini Project Cards */
+        .mini-card {
+            flex: 0 0 300px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mini-card:hover {
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
+            border-color: rgba(255, 105, 180, 0.4);
+        }
+
+        .mini-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+        }
+
+        .mini-card-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+
+        .mini-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mini-title-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .mini-theme {
+            font-size: 0.85rem;
+            color: #8892a0;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .mini-card-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            margin-top: 0;
+            border-top: none;
+            padding-top: 0;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out, border-top 0.5s ease-in-out, padding-top 0.5s ease-in-out;
+        }
+
+        .mini-card.expanded {
+            min-height: 450px;
+        }
+
+        .mini-card.expanded .mini-card-details {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(255, 105, 180, 0.2);
+            padding-top: 1.5rem;
+        }
+
+        .mini-card.expanded .mini-card-header {
+            flex: none;
+            align-items: flex-start;
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .mini-card.expanded .mini-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mini-card.expanded .mini-title-text {
+            margin-bottom: 0.3rem;
+        }
+
+        .mini-description {
+            font-size: 0.9rem;
+            color: #b0b8c3;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .mini-features {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .mini-features li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+            color: #b0b8c3;
+        }
+
+        .mini-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #ff69b4;
+        }
+
+        .mini-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .mini-tech-tag {
+            background: rgba(255, 105, 180, 0.15);
+            color: #ff69b4;
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(255, 105, 180, 0.25);
+        }
+
+        .mini-link {
+            color: #ff69b4;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
             transition: color 0.3s ease;
         }
 
-        .project-link:hover {
-            color: #ffffff;
+        .mini-link:hover {
+            color: #ff1493;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design for Projects */
+        @media (max-width: 768px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-tags {
+                gap: 0.5rem;
+            }
+
+            .filter-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
+            }
         }
 
         /* Blog Section */
@@ -1237,135 +1605,227 @@
         <div class="container">
             <h2 class="section-title">Projects</h2>
             
-            <div class="projects-tabs">
-                <button class="tab-btn active" onclick="showProjects('all')">전체</button>
-                <button class="tab-btn" onclick="showProjects('data')">데이터 분석</button>
-                <button class="tab-btn" onclick="showProjects('ml')">머신러닝</button>
-                <button class="tab-btn" onclick="showProjects('sql')">SQL</button>
+            <!-- Featured Projects -->
+            <div class="featured-projects">
+                <h3 class="featured-title">Featured Projects</h3>
+                <div class="featured-grid">
+                    <div class="featured-card">
+                        <div class="project-icon">💍</div>
+                        <h4 class="project-title">Marry Route 챗봇 (AI Wedding Planner Agent)</h4>
+                        <p class="project-status">Status: In Progress ⏳</p>
+                        <p class="project-description">
+                            LangChain 프레임워크를 활용한 AI 기반 웨딩 플래너 에이전트입니다. 맞춤형 웨딩 장소, 업체, 일정 추천을 제공하며, 대화형 UI를 통해 사용자 친화적인 경험을 제공합니다.
+                        </p>
+                        <ul class="project-features">
+                            <li>AI 에이전트를 통한 맞춤형 추천</li>
+                            <li>LangChain 프레임워크로 도구 통합</li>
+                            <li>대화형 및 작업 중심 UI</li>
+                            <li>Streamlit을 활용한 사용자 친화적 인터페이스</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">OpenAI</span>
+                            <span class="tech-tag">LLM</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ming2tofu33/pjt-wedding_planner_AI_agent" class="project-btn btn-primary" target="_blank">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="featured-card">
+                        <div class="project-icon">🎬</div>
+                        <h4 class="project-title">한국 영화 데이터 분석</h4>
+                        <p class="project-status">Status: Completed ✅</p>
+                        <p class="project-description">
+                            2005-2019년 한국 영화 트렌드를 분석한 종합 데이터 분석 프로젝트입니다. KOFIC API와 TMDB API를 통합하고, 네이버 영화 평점 크롤링을 추가하여 약 900개의 한국 영화 데이터셋을 구축했습니다.
+                        </p>
+                        <ul class="project-features">
+                            <li>다중 소스 데이터 수집 (KOFIC + TMDB API)</li>
+                            <li>추가 평점 데이터를 위한 웹 스크래핑</li>
+                            <li>장르 및 시간적 트렌드 분석</li>
+                            <li>통계적 상관관계 분석</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">KOFIC API</span>
+                            <span class="tech-tag">Web Scraping</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ming2tofu33/pjt-movie_analysis" class="project-btn btn-primary" target="_blank">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="projects-grid" id="projects-container">
-                <div class="project-card glass" data-category="data">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">영화 데이터 분석 프로젝트</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">KOFIC API와 웹 크롤링을 활용한 영화 데이터 수집 및 분석</p>
-                        </div>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">KOFIC API</span>
-                        <span class="tech-tag">TMDB API</span>
-                        <span class="tech-tag">Web Scraping</span>
-                        <span class="tech-tag">BeautifulSoup</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Data Analysis</span>
-                    </div>
-                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        KOFIC API와 TMDB API를 통해 영화 데이터를 수집하고, 네이버 영화 평점을 웹 크롤링으로 추가 수집하여 
-                        종합적인 영화 데이터 분석을 진행한 프로젝트입니다. 장르별, 연도별 트렌드와 평점 분석을 통해 인사이트를 도출했습니다.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/ming2tofu33/pjt-movie-analysis" class="project-link" target="_blank">GitHub</a>
-                        <a href="#" class="project-link">Report</a>
+            <!-- Mini Projects -->
+            <div class="mini-projects">
+                <h3 class="mini-title">Mini Projects</h3>
+                
+                <div class="filter-section">
+                    <div class="filter-tags" id="filterTags">
+                        <div class="filter-tag active" data-filter="all">All</div>
+                        <div class="filter-tag" data-filter="python">Python</div>
+                        <div class="filter-tag" data-filter="machine-learning">Machine Learning</div>
+                        <div class="filter-tag" data-filter="ai-llm">AI/LLM</div>
+                        <div class="filter-tag" data-filter="database">Database</div>
+                        <div class="filter-tag" data-filter="api">API</div>
                     </div>
                 </div>
+                
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn" id="prevBtn">‹</button>
+                    <button class="carousel-btn" id="nextBtn">›</button>
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="mini-card" data-theme="Data Engineering" data-categories="python,database">
+                                <div class="mini-card-header">
+                                    <div class="mini-icon">🔧</div>
+                                    <h4 class="mini-title-text">Multi-Database ETL Pipeline</h4>
+                                    <p class="mini-theme">Data Engineering</p>
+                                </div>
+                                <div class="mini-card-details">
+                                    <p class="mini-description">이기종 데이터베이스(PostgreSQL, MySQL, SQLite) 연동을 지원하는 프로덕션 수준의 자동화된 ETL 파이프라인 시스템 구현.</p>
+                                    <ul class="mini-features">
+                                        <li>다중 DB 통합: SQLAlchemy 기반으로 이기종 DB 연결을 통합 관리하고 ETL 워크플로우를 자동화.</li>
+                                        <li>시스템 안정화: DB 연결 풀링(Connection Pooling) 구현으로 부하를 최소화하고 처리 안정성 확보.</li>
+                                        <li>유연한 처리: 오류 처리 로직을 포함한 동적 쿼리 생성 기능으로 다양한 데이터 스키마에 유연하게 대응.</li>
+                                    </ul>
+                                    <div class="mini-tech-stack">
+                                        <span class="mini-tech-tag">Python</span>
+                                        <span class="mini-tech-tag">SQLAlchemy</span>
+                                        <span class="mini-tech-tag">PostgreSQL</span>
+                                        <span class="mini-tech-tag">Pandas</span>
+                                    </div>
+                                    <a href="https://github.com/ming2tofu33/pjt-mini-sql_conn" class="mini-link" target="_blank">GitHub →</a>
+                                </div>
+                            </div>
 
-                <div class="project-card glass" data-category="sql">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">SQL 데이터베이스 분석 프로젝트</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">음악 데이터베이스를 활용한 다단계 SQL 분석</p>
+                            <div class="mini-card" data-theme="AI Agent Development" data-categories="python,ai-llm">
+                                <div class="mini-card-header">
+                                    <div class="mini-icon">🤖</div>
+                                    <h4 class="mini-title-text">LangGraph Code Assistant</h4>
+                                    <p class="mini-theme">AI Agent Development</p>
+                                </div>
+                                <div class="mini-card-details">
+                                    <p class="mini-description">LangGraph StateGraph 아키텍처를 적용하여 구축된 대화형 AI 코드 인터프리터 에이전트. 자연어를 Python 코드로 변환하고 실행하는 멀티스텝 추론 파이프라인을 구현.</p>
+                                    <ul class="mini-features">
+                                        <li>멀티스텝 에이전트 설계: LangGraph StateGraph를 활용, '코드 생성-실행-해석' 과정을 체계화하여 복잡한 AI 워크플로우 구현.</li>
+                                        <li>안전한 동적 코드 실행: Python REPL 샌드박스 환경에서 자연어 기반 동적 코드를 안전하게 실행 및 결과 도출.</li>
+                                        <li>핵심 역량: LLM 기반 에이전트의 상태 관리 및 안정적인 추론 파이프라인 구축 경험 확보.</li>
+                                    </ul>
+                                    <div class="mini-tech-stack">
+                                        <span class="mini-tech-tag">Python</span>
+                                        <span class="mini-tech-tag">LangChain</span>
+                                        <span class="mini-tech-tag">LangGraph</span>
+                                        <span class="mini-tech-tag">OpenAI API</span>
+                                    </div>
+                                    <a href="https://github.com/ming2tofu33/pjt-mini-code_interpreter" class="mini-link" target="_blank">GitHub →</a>
+                                </div>
+                            </div>
+
+                            <div class="mini-card" data-theme="Machine Learning" data-categories="python,machine-learning">
+                                <div class="mini-card-header">
+                                    <div class="mini-icon">🍷</div>
+                                    <h4 class="mini-title-text">Wine Quality Prediction</h4>
+                                    <p class="mini-theme">Machine Learning</p>
+                                </div>
+                                <div class="mini-card-details">
+                                    <p class="mini-description">와인의 11가지 화학적 속성을 기반으로 품질 등급(3~8점)을 예측하는 분류 모델 구축 프로젝트.</p>
+                                    <ul class="mini-features">
+                                        <li>최적 모델 선정: RandomForest 모델을 채택하여 85.2%의 정확도 달성.</li>
+                                        <li>성능 최적화: 탐색적 분석(EDA) 기반 특성 엔지니어링 및 하이퍼파라미터 튜닝을 통한 분류 성능 향상.</li>
+                                        <li>주요 특성 분석: 와인 품질에 가장 큰 영향을 미치는 알코올 도수(alcohol)와 휘발성 산도(volatile_acidity) 등 핵심 특성 도출.</li>
+                                        <li>핵심 역량: 데이터 전처리부터 모델 비교, 최적화까지 머신러닝 분류 프로세스 전반에 대한 숙련도 확보.</li>
+                                    </ul>
+                                    <div class="mini-tech-stack">
+                                        <span class="mini-tech-tag">Python</span>
+                                        <span class="mini-tech-tag">Scikit-learn</span>
+                                        <span class="mini-tech-tag">Feature Engineering</span>
+                                    </div>
+                                    <a href="https://github.com/ming2tofu33/pjt-mini-redwine_quality" class="mini-link" target="_blank">GitHub →</a>
+                                </div>
+                            </div>
+
+                            <div class="mini-card" data-theme="Data Analysis" data-categories="python,machine-learning">
+                                <div class="mini-card-header">
+                                    <div class="mini-icon">🚢</div>
+                                    <h4 class="mini-title-text">Titanic Survival Analysis</h4>
+                                    <p class="mini-theme">Data Analysis</p>
+                                </div>
+                                <div class="mini-card-details">
+                                    <p class="mini-description">승객 데이터를 활용하여 생존 여부를 예측하는 머신러닝 분류 모델 프로젝트. 성별, 객실 등급, 연령별 EDA 인사이트를 기반으로 고급 결측치 처리 및 특성 엔지니어링을 수행.</p>
+                                    <ul class="mini-features">
+                                        <li>고급 결측치 처리: Age 결측치를 성별 및 객실 등급별 평균 나이를 이용해 치밀하게 대체하여 데이터 품질 확보.</li>
+                                        <li>데이터 기반 인사이트: 성별, 객실 등급, 연령대 조합에 따른 생존율 차이를 교차 분석하여 핵심 패턴 도출.</li>
+                                        <li>특성 엔지니어링: Age 데이터를 5개 연령대로 구간화하여 모델 예측력 향상을 위한 새로운 범주형 특성 생성.</li>
+                                        <li>핵심 역량: 데이터 탐색, 전처리, 통계 분석을 포함한 체계적인 머신러닝 전처리 파이프라인 구축 경험 확보.</li>
+                                    </ul>
+                                    <div class="mini-tech-stack">
+                                        <span class="mini-tech-tag">Python</span>
+                                        <span class="mini-tech-tag">Scikit-learn</span>
+                                        <span class="mini-tech-tag">EDA</span>
+                                        <span class="mini-tech-tag">ML</span>
+                                    </div>
+                                    <a href="https://github.com/ming2tofu33/pjt-mini-titanic_survival" class="mini-link" target="_blank">GitHub →</a>
+                                </div>
+                            </div>
+
+                            <div class="mini-card" data-theme="Bot Development" data-categories="python,api,ai-llm">
+                                <div class="mini-card-header">
+                                    <div class="mini-icon">💬</div>
+                                    <h4 class="mini-title-text">Telegram Chatbot</h4>
+                                    <p class="mini-theme">Bot Development</p>
+                                </div>
+                                <div class="mini-card-details">
+                                    <p class="mini-description">FastAPI를 백엔드로 사용하고 GPT-4를 연동한 대화형 AI 챗봇. 실시간 응답을 위한 웹훅 아키텍처를 구축하여 서비스의 반응 속도와 안정성을 확보.</p>
+                                    <ul class="mini-features">
+                                        <li>실시간 웹훅 구현: FastAPI 기반의 웹훅 엔드포인트(@app.post('/telegram'))를 통해 텔레그램 메시지를 실시간으로 수신 및 처리.</li>
+                                        <li>GPT 기반 응답: OpenAI API를 연동하여 사용자 메시지에 대한 지능형 대화 응답 생성 및 전송 시스템 구축.</li>
+                                        <li>보안 및 환경 설정: API 키를 환경 변수로 분리하여 보안적인 개발 환경 및 배포 구조 마련.</li>
+                                        <li>핵심 역량: 실시간 통신 아키텍처(웹훅)와 외부 AI API를 통합한 봇 서비스 개발 경험 확보.</li>
+                                    </ul>
+                                    <div class="mini-tech-stack">
+                                        <span class="mini-tech-tag">Python</span>
+                                        <span class="mini-tech-tag">FastAPI</span>
+                                        <span class="mini-tech-tag">OpenAI API</span>
+                                        <span class="mini-tech-tag">Telegram Bot API</span>
+                                    </div>
+                                    <a href="https://github.com/ming2tofu33/pjt-mini-telegram_chatbot" class="mini-link" target="_blank">GitHub →</a>
+                                </div>
+                            </div>
+
+                            <div class="mini-card" data-theme="Database Analysis" data-categories="database">
+                                <div class="mini-card-header">
+                                    <div class="mini-icon">📊</div>
+                                    <h4 class="mini-title-text">SQL Music Database Analysis</h4>
+                                    <p class="mini-theme">Database Analysis</p>
+                                </div>
+                                <div class="mini-card-details">
+                                    <p class="mini-description">음악 스트리밍 서비스 데이터베이스(Chinook DB)를 대상으로, 초급부터 고급까지 SQL 쿼리를 작성하여 고객 행동 및 비즈니스 성과 지표를 분석한 데이터 분석 프로젝트.</p>
+                                    <ul class="mini-features">
+                                        <li>고급 분석 쿼리: Window Function (LAG/LEAD)으로 월별 전월 대비 매출 증감률을 계산하는 등 고급 재무 지표 분석 구현.</li>
+                                        <li>고객 세분화: 구매액 기반 고객 등급(VIP/Low) 분류 로직 및 코호트 잔존율 분석 쿼리 작성.</li>
+                                        <li>핵심 역량: JOIN, Subquery, Window Function 등 고급 SQL 기술을 활용하여 비즈니스 인사이트를 도출하는 실무 분석 역량 확보.</li>
+                                    </ul>
+                                    <div class="mini-tech-stack">
+                                        <span class="mini-tech-tag">SQL</span>
+                                        <span class="mini-tech-tag">PostgreSQL</span>
+                                        <span class="mini-tech-tag">Data Analysis</span>
+                                    </div>
+                                    <a href="https://github.com/ming2tofu33/pjt-mini-sql_music" class="mini-link" target="_blank">GitHub →</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Data Analysis</span>
-                        <span class="tech-tag">Database Design</span>
-                    </div>
-                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        음악 스트리밍 데이터베이스를 대상으로 하/중/상 난이도별 SQL 쿼리를 작성하고 분석했습니다. 
-                        고객 분석, 매출 집계, 코호트 분석 등 실무에서 활용할 수 있는 다양한 분석을 수행했습니다.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/ming2tofu33/pjt-sql-mini" class="project-link" target="_blank">GitHub</a>
-                        <a href="#" class="project-link">Report</a>
-                    </div>
-                </div>
 
-                <div class="project-card glass" data-category="data">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">고객 획득비용(CAC) & 생애가치(LTV) 분석</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">비즈니스 지표 분석을 통한 마케팅 ROI 최적화</p>
-                        </div>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Business Analytics</span>
-                        <span class="tech-tag">Cohort Analysis</span>
-                    </div>
-                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        채널별 고객 획득 비용과 생애 가치를 분석하여 마케팅 효율성을 평가했습니다. 
-                        코호트 분석을 통해 고객 유지율을 분석하고 개선 전략을 도출했습니다.
-                    </p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">GitHub</a>
-                        <a href="#" class="project-link">Report</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass" data-category="ml">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">Titanic 생존 요인 분석</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">머신러닝을 활용한 승객 생존율 예측 및 요인 분석</p>
-                        </div>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">Data Preprocessing</span>
-                        <span class="tech-tag">EDA</span>
-                    </div>
-                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        타이타닉 승객 데이터를 활용하여 생존에 영향을 미친 주요 요인을 분석했습니다. 
-                        이상치 처리, 특성 엔지니어링을 통해 데이터를 전처리하고 분류 모델의 성능을 향상시켰습니다.
-                    </p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">GitHub</a>
-                        <a href="#" class="project-link">Notebook</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass" data-category="ml">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">와인 품질 예측 머신러닝</h3>
-                            <p style="color: #8892a0; font-size: 0.9rem;">화학적 특성을 이용한 와인 품질 등급 예측</p>
-                        </div>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">Feature Selection</span>
-                        <span class="tech-tag">Model Evaluation</span>
-                    </div>
-                    <p style="color: #b0b8c3; font-size: 0.9rem; line-height: 1.5;">
-                        적포도주의 화학적 성분 데이터를 활용하여 품질 등급을 예측하는 분류 모델을 개발했습니다. 
-                        다양한 머신러닝 알고리즘을 비교하고 최적의 하이퍼파라미터를 찾아 성능을 최적화했습니다.
-                    </p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">GitHub</a>
-                        <a href="#" class="project-link">Analysis</a>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-
     <section id="learning" class="section">
         <div class="container">
             <h2 class="section-title">Learning & Growth</h2>
@@ -1847,7 +2307,146 @@
         }
 
         // Resume download function
-        function downloadResume() {
+
+        // Project Carousel Control
+        class ProjectCarousel {
+            constructor() {
+                this.track = document.getElementById('carouselTrack');
+                this.container = document.querySelector('.carousel-container');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.filterTags = document.getElementById('filterTags');
+                
+                if (!this.track || !this.container) return;
+                
+                this.cards = this.track.children;
+                this.cardCount = this.cards.length;
+                this.cardWidth = 300 + 24; // card width + gap
+                this.visibleCards = this.getVisibleCards();
+                this.maxIndex = Math.max(0, this.cardCount - this.visibleCards);
+                this.activeFilter = 'all';
+                
+                this.init();
+            }
+            
+            init() {
+                this.bindEvents();
+                this.setupFilterEvents();
+                this.updateButtons();
+                this.setupCardInteraction();
+                
+                window.addEventListener('resize', () => {
+                    this.visibleCards = this.getVisibleCards();
+                    this.updateMaxIndex();
+                    this.updateButtons();
+                });
+            }
+
+            setupFilterEvents() {
+                if (!this.filterTags) return;
+                
+                this.filterTags.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('filter-tag')) {
+                        const filter = e.target.dataset.filter;
+                        this.applyFilter(filter);
+                        
+                        this.filterTags.querySelectorAll('.filter-tag').forEach(tag => {
+                            tag.classList.remove('active');
+                        });
+                        e.target.classList.add('active');
+                        
+                        this.activeFilter = filter;
+                        this.container.scrollTo({ left: 0, behavior: 'smooth' });
+                        this.updateButtons();
+                    }
+                });
+            }
+
+            applyFilter(filter) {
+                Array.from(this.cards).forEach(card => {
+                    card.classList.remove('expanded'); 
+                    
+                    if (filter === 'all') {
+                        card.style.display = 'flex';
+                    } else {
+                        const categories = card.dataset.categories || '';
+                        if (categories.includes(filter)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+
+                this.updateMaxIndex();
+            }
+
+            updateMaxIndex() {
+                const visibleCardCount = Array.from(this.cards).filter(card => 
+                    card.style.display !== 'none'
+                ).length;
+                
+                this.maxIndex = Math.max(0, visibleCardCount - this.visibleCards);
+            }
+
+            setupCardInteraction() {
+                Array.from(this.cards).forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        if (e.target.classList.contains('mini-link') || e.target.closest('.mini-link')) {
+                            return;
+                        }
+                        
+                        card.classList.toggle('expanded');
+                        e.stopPropagation();
+                    });
+                });
+            }
+            
+            getVisibleCards() {
+                const containerWidth = this.container.offsetWidth;
+                return Math.floor(containerWidth / this.cardWidth);
+            }
+            
+            bindEvents() {
+                if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prev());
+                if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.next());
+                
+                this.container.addEventListener('scroll', () => this.updateButtons());
+
+                this.container.addEventListener('wheel', (e) => {
+                    if (e.deltaX !== 0) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+            }
+
+            updateButtons() {
+                const scrollLeft = this.container.scrollLeft;
+                const scrollWidth = this.container.scrollWidth;
+                const clientWidth = this.container.clientWidth;
+                
+                const atStart = scrollLeft <= 2;
+                const atEnd = scrollLeft >= (scrollWidth - clientWidth - 2); 
+                
+                if (this.prevBtn) this.prevBtn.disabled = atStart;
+                if (this.nextBtn) this.nextBtn.disabled = atEnd;
+            }
+            
+            next() {
+                this.container.scrollBy({ left: this.cardWidth, behavior: 'smooth' });
+            }
+            
+            prev() {
+                this.container.scrollBy({ left: -this.cardWidth, behavior: 'smooth' });
+            }
+        }
+        
+        // Initialize Carousel
+        if (document.getElementById('carouselTrack')) {
+            new ProjectCarousel();
+        }
+
+                function downloadResume() {
             // 실제로는 PDF 파일 다운로드 링크를 제공
             alert('이력서 다운로드 기능입니다. 실제 환경에서는 PDF 파일이 다운로드됩니다.');
         }
