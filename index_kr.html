@@ -400,7 +400,6 @@
         /* Featured Projects */
         .featured-projects {
             margin-bottom: 5rem;
-            padding: 0 2rem;
         }
 
         .featured-title {
@@ -415,24 +414,24 @@
 
         .featured-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
         .featured-card {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 105, 180, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 105, 180, 0.15);
             border-radius: 20px;
             padding: 2rem;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .featured-card:hover {
-            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
-            border-color: rgba(255, 105, 180, 0.4);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
+            border-color: rgba(255, 105, 180, 0.3);
         }
 
         .featured-card::before {
@@ -587,10 +586,6 @@
         }
 
         /* Mini Projects Carousel */
-        .mini-projects {
-            padding: 0 2rem;
-        }
-
         .mini-title {
             font-size: 1.8rem;
             margin-bottom: 2rem;
@@ -669,7 +664,7 @@
 
         /* Mini Project Cards */
         .mini-card {
-            flex: 0 0 300px;
+            flex: 0 0 380px;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 105, 180, 0.2);
@@ -846,6 +841,24 @@
             .filter-tag {
                 font-size: 0.8rem;
                 padding: 0.4rem 1rem;
+            }
+
+            .mini-card {
+                flex: 0 0 380px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            #prevBtn {
+                left: -15px;
+            }
+
+            #nextBtn {
+                right: -15px;
             }
         }
 
