@@ -55,6 +55,14 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: #ff69b4;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
         }
 
         .nav-menu {
@@ -405,10 +413,7 @@
         .featured-title {
             font-size: 1.8rem;
             margin-bottom: 2rem;
-            background: linear-gradient(45deg, #ff69b4 0%, #ff1493 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ff69b4;
             text-align: center;
         }
 
@@ -421,7 +426,7 @@
         .featured-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 105, 180, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 2rem;
             position: relative;
@@ -431,7 +436,7 @@
 
         .featured-card:hover {
             box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
-            border-color: rgba(255, 105, 180, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .featured-card::before {
@@ -589,10 +594,7 @@
         .mini-title {
             font-size: 1.8rem;
             margin-bottom: 2rem;
-            background: linear-gradient(45deg, #ff69b4 0%, #ff1493 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ff69b4;
             text-align: center;
         }
 
@@ -667,7 +669,7 @@
             flex: 0 0 350px;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 105, 180, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 1.5rem;
             cursor: pointer;
@@ -681,7 +683,7 @@
 
         .mini-card:hover {
             box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
-            border-color: rgba(255, 105, 180, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .mini-card::before {
@@ -1011,6 +1013,8 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 50px;
             transition: all 0.3s ease;
+            min-width: 350px;
+            justify-content: flex-start;
         }
 
         .contact-item:hover {
@@ -1286,6 +1290,11 @@
                 align-items: center;
             }
 
+            .contact-item {
+                width: 100%;
+                max-width: 350px;
+            }
+
             .modal-content {
                 min-width: 90%;
                 max-width: 90%;
@@ -1306,7 +1315,12 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo"><a href="#hero" style="text-decoration: none; color: #ff69b4;">DK</a></div>
+            <div class="nav-logo">
+                <a href="#hero" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: #ff69b4;">
+                    <img src="https://raw.githubusercontent.com/ming2tofu33/ming2tofu33.github.io/main/favicon.png" alt="Logo">
+                    DK
+                </a>
+            </div>
             <ul class="nav-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
